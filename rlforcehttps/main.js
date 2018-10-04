@@ -1,5 +1,5 @@
 const baseAddress = Module.findBaseAddress('RocketLeague.exe');
-const offset = '0x90C0F0'; // RL 1.54
+const offset = '0x90C0F0'; // RL 1.53
 
 Interceptor.attach(baseAddress.add(offset), {
     onEnter: function (args) {
