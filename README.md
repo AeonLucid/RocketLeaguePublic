@@ -62,7 +62,7 @@ It is possible to keep using the HTTP api instead of the websocket server. I hav
 
 If you want to intercept HTTPS requests from the game itself, you have to make sure that the websocket connection fails. It will fallback to HTTPS after 10 failed attempts.
 
-~~You can easily do this by putting this line in your hosts file: `127.0.0.1 rl-psy.net`~~
+You can easily do this by using the provided [python application here](rlforcehttps/).
 
 Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and have installed its `SSL Root Certificate` in your `Trusted Root Certification Authorities`. (Something similar should be done if you are on a mac)
 
