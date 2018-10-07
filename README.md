@@ -96,6 +96,8 @@ Input: `-(Request body)`
 Secret: `3b932153785842ac927744b292e40e52`  
 Input: `(Value of PsyTime)-(Response body)`
 
+> The secret for `rl-cdn.psyonix.com` is `cqhyz50f3c3j2pxhwo6b1kypxikah0wh` and input `(Response body)`.
+
 ## 1.6. Authentication
 
 As of now, I do only know how to implement it for Steam. An example of this can be found in the demo/demo.js file.  
