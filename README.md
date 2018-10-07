@@ -72,10 +72,10 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 |-|-|-|
 | PsyBuildID | 708028087 | No |
 | PsyEnvironment | Prod | No |
-| PsyRequestID | See [Requests](#requests) | No |
-| PsySig | See [Signing](#signing) | No |
-| PsyToken | See [Authentication](#authentication) | Yes |
-| PsySessionID | See [Authentication](#authentication) | Yes |
+| PsyRequestID | See [Requests](#17-requests) | No |
+| PsySig | See [Signing](#15-signing) | No |
+| PsyToken | See [Authentication](#16-authentication) | Yes |
+| PsySessionID | See [Authentication](#16-authentication) | Yes |
 
 > Take note that fields like `PsyBuildID`, `FeatureSet` and `GameVersion` may all be changed on a new patch.   
 > I will try to keep this repository updated.
