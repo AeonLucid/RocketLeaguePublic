@@ -9,6 +9,12 @@ const RLAppId = 252950; // https://steamdb.info/app/252950/
 const RLEndpoint = 'https://psyonix-rl.appspot.com/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
+const RLUserAgent = 'RL Win/181015.37783.212225 gzip';
+const RLLanguage = 'INT';
+const RLGameVersion = 25;
+const RLFeatureSet = 'FeatureUpdate22_1';
+const RLBuildId = '-112028592';
+
 const Config = require('./demo_config');
 const Utils = require('./lib/utils');
 const SteamUser = require('steam-user');
@@ -29,7 +35,8 @@ clientSteam.on('loggedOn', details => {
     // Step 2: Request an appticket (AuthTicket).
     clientSteam.getEncryptedAppTicket(RLAppId, null, (err, ticket) => {
         if (err) {
-            return console.log("[Steam] AppTicket error: " + err);
+			console.log("[Steam] AppTicket error: " + err);
+            return;
         }
 
         console.log('[Steam] Received an appticket.');
@@ -44,11 +51,11 @@ clientSteam.on('loggedOn', details => {
                     Platform: 'Steam',
                     PlayerName: Config.displayName,
                     PlayerID: clientSteam.steamID.getSteamID64(),
-                    GameVersion: 25,
-                    Language: 'INT',
+                    GameVersion: RLGameVersion,
+                    Language: RLLanguage,
                     AuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
                     BuildRegion: '',
-                    FeatureSet: 'FeatureUpdate22_1',
+                    FeatureSet: RLFeatureSet,
                     bTrial: false,
                     bSkipAuth: false
                 }
@@ -61,9 +68,9 @@ clientSteam.on('loggedOn', details => {
             url: RLEndpoint,
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'User-Agent': 'RL Win/180912.59017.208087 gzip',
+                'User-Agent': RLUserAgent,
                 'Cache-Control': 'no-cache',
-                'PsyBuildID': '708028087',
+                'PsyBuildID': RLBuildId,
                 'PsyEnvironment': 'Prod',
                 'PsyRequestID': 'PsyNetMessage_X_3',
                 'PsySig': Buffer.from(authSignature, 'hex').toString('base64')
@@ -105,9 +112,9 @@ clientSteam.on('loggedOn', details => {
                 url: RLEndpoint,
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
-                    'User-Agent': 'RL Win/180912.59017.208087 gzip',
+                    'User-Agent': RLUserAgent,
                     'Cache-Control': 'no-cache',
-                    'PsyBuildID': '708028087',
+                    'PsyBuildID': RLBuildId,
                     'PsyEnvironment': 'Prod',
                     'PsyRequestID': 'PsyNetMessage_X_4',
                     'PsySig': Buffer.from(productsSignature, 'hex').toString('base64'),

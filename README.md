@@ -62,7 +62,7 @@ It is possible to keep using the HTTP api instead of the websocket server. I hav
 
 If you want to intercept HTTPS requests from the game itself, you have to make sure that the websocket connection fails. It will fallback to HTTPS after 10 failed attempts.
 
-You can easily do this by using the provided [python application here](rlforcehttps/).
+You can easily do this by using the provided [script](rlforcehttps_alt/fiddlerscript.js) for [fiddler](https://www.telerik.com/fiddler).
 
 Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and have installed its `SSL Root Certificate` in your `Trusted Root Certification Authorities`. (Something similar should be done if you are on a mac)
 
@@ -70,7 +70,8 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 
 | Key | Value | Authenticated only |
 |-|-|-|
-| PsyBuildID | 708028087 | No |
+| User-Agent | RL Win/181015.37783.212225 gzip | No |
+| PsyBuildID | -112028592 | No |
 | PsyEnvironment | Prod | No |
 | PsyRequestID | See [Requests](#17-requests) | No |
 | PsySig | See [Signing](#15-signing) | No |
