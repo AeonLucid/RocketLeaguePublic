@@ -70,8 +70,8 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 
 | Key | Value | Authenticated only |
 |-|-|-|
-| User-Agent | RL Win/181015.37783.212225 gzip | No |
-| PsyBuildID | -112028592 | No |
+| User-Agent | RL Win/181119.52056.216417 gzip | No |
+| PsyBuildID | 1578020590 | No |
 | PsyEnvironment | Prod | No |
 | PsyRequestID | See [Requests](#17-requests) | No |
 | PsySig | See [Signing](#15-signing) | No |
@@ -154,11 +154,11 @@ A request body looks like this.
     "Platform": "Steam",
     "PlayerName": "Your Steam display name",
     "PlayerID": "Your SteamID64",
-    "GameVersion": 25,
+    "GameVersion": 26,
     "Language": "INT",
     "AuthTicket": "Steam EncryptedAppTicket, see demo/demo.js for an example",
     "BuildRegion": "",
-    "FeatureSet": "FeatureUpdate22_1",
+    "FeatureSet": "PrimeUpdate23",
     "bTrial": false,
     "bSkipAuth": false
 }
