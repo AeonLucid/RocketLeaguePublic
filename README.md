@@ -70,8 +70,8 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 
 | Key | Value | Authenticated only |
 |-|-|-|
-| User-Agent | RL Win/181119.52056.216417 gzip | No |
-| PsyBuildID | 1578020590 | No |
+| User-Agent | RL Win/181206.63350.217951 gzip | No |
+| PsyBuildID | -195435727 | No |
 | PsyEnvironment | Prod | No |
 | PsyRequestID | See [Requests](#17-requests) | No |
 | PsySig | See [Signing](#15-signing) | No |
