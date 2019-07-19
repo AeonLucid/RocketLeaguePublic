@@ -9,11 +9,11 @@ const RLAppId = 252950; // https://steamdb.info/app/252950/
 const RLEndpoint = 'https://psyonix-rl.appspot.com/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
-const RLUserAgent = 'RL Win/181206.63350.217951 gzip';
+const RLUserAgent = 'RL Win/190605.83642.236736 gzip';
 const RLLanguage = 'INT';
-const RLGameVersion = 26;
-const RLFeatureSet = 'PrimeUpdate23';
-const RLBuildId = '-195435727';
+const RLGameVersion = 30;
+const RLFeatureSet = 'PrimeUpdate27';
+const RLBuildId = '1585258150';
 
 const Config = require('./demo_config');
 const Utils = require('./lib/utils');
@@ -56,7 +56,6 @@ clientSteam.on('loggedOn', details => {
                     AuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
                     BuildRegion: '',
                     FeatureSet: RLFeatureSet,
-                    bTrial: false,
                     bSkipAuth: false
                 }
             }
@@ -72,7 +71,7 @@ clientSteam.on('loggedOn', details => {
                 'Cache-Control': 'no-cache',
                 'PsyBuildID': RLBuildId,
                 'PsyEnvironment': 'Prod',
-                'PsyRequestID': 'PsyNetMessage_X_3',
+                'PsyRequestID': 'PsyNetMessage_X_2',
                 'PsySig': Buffer.from(authSignature, 'hex').toString('base64')
             },
             body: authRequest
