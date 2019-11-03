@@ -9,19 +9,36 @@ const RLAppId = 252950; // https://steamdb.info/app/252950/
 const RLEndpoint = 'https://psyonix-rl.appspot.com/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
-const RLUserAgent = 'RL Win/190605.83642.236736 gzip';
+const RLUserAgent = 'RL Win/191017.56724.251203 gzip';
 const RLLanguage = 'INT';
-const RLGameVersion = 30;
-const RLFeatureSet = 'PrimeUpdate27';
-const RLBuildId = '1585258150';
+const RLFeatureSet = 'PrimeUpdate29';
+const RLBuildId = '-1306624075';
+const RLEnvironment = 'Prod';
 
 const Config = require('./demo_config');
 const Utils = require('./lib/utils');
 const SteamUser = require('steam-user');
 const CryptoJS = require('crypto-js');
+const WebSocket = require('ws')
 
 let request = require('request');
 let clientSteam = new SteamUser();
+
+// Step 0: Verify config.
+if (!Config.username) {
+    console.log('Field "username" is missing from the config.');
+    return;
+}
+
+if (!Config.password) {
+    console.log('Field "password" is missing from the config.');
+    return;
+}
+
+if (!Config.displayName) {
+    console.log('Field "displayName" is missing from the config.');
+    return;
+}
 
 // Step 1: Sign into Steam.
 clientSteam.logOn({
@@ -46,12 +63,11 @@ clientSteam.on('loggedOn', details => {
             {
                 Service: 'Auth/AuthPlayer',
                 Version: 1,
-                ID: 2,
+                ID: 1,
                 Params: {
                     Platform: 'Steam',
                     PlayerName: Config.displayName,
                     PlayerID: clientSteam.steamID.getSteamID64(),
-                    GameVersion: RLGameVersion,
                     Language: RLLanguage,
                     AuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
                     BuildRegion: '',
@@ -70,8 +86,8 @@ clientSteam.on('loggedOn', details => {
                 'User-Agent': RLUserAgent,
                 'Cache-Control': 'no-cache',
                 'PsyBuildID': RLBuildId,
-                'PsyEnvironment': 'Prod',
-                'PsyRequestID': 'PsyNetMessage_X_2',
+                'PsyEnvironment': RLEnvironment,
+                'PsyRequestID': 'PsyNetMessage_X_0',
                 'PsySig': Buffer.from(authSignature, 'hex').toString('base64')
             },
             body: authRequest
@@ -86,54 +102,74 @@ clientSteam.on('loggedOn', details => {
                 return console.log('[RocketLeague] Auth failed: ' + body);
             }
 
-            let authSessionId = authResponse.SessionID;
+            let authWebsocket = authResponse.PerConURL;
             let authPsyToken = authResponse.PsyToken;
+            let authSessionId = authResponse.SessionID;
 
             console.log('[RocketLeague] Auth was successful.');
-            console.log('[RocketLeague] Fetching inventory of signed in player..');
-
-            // It's now possible to make authenticated requests.
-            // Step 5: Make an authenticated request.
-            let productsRequest = JSON.stringify([
-                {
-                    Service: 'Products/GetPlayerProducts',
-                    Version: 1,
-                    ID: 3,
-                    Params: {
-                        PlayerID: 'Steam|' + clientSteam.steamID.getSteamID64() + '|0'
-                    }
-                }
-            ]);
-
-            let productsSignature = CryptoJS.HmacSHA256('-' + productsRequest, RLKey).toString();
-
-            request.post({
-                url: RLEndpoint,
+            console.log('[RocketLeague] Connecting to RocketLeague through WebSocket.');
+            
+            const client = new WebSocket(authWebsocket, {
                 headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'User-Agent': RLUserAgent,
-                    'Cache-Control': 'no-cache',
-                    'PsyBuildID': RLBuildId,
-                    'PsyEnvironment': 'Prod',
-                    'PsyRequestID': 'PsyNetMessage_X_4',
-                    'PsySig': Buffer.from(productsSignature, 'hex').toString('base64'),
                     'PsyToken': authPsyToken,
-                    'PsySessionID': authSessionId
-                },
-                body: productsRequest
-            }, (error, response, body) => {
-                if (error) {
-                    return console.log('[RocketLeague] Auth failed: ' + error);
-                }
-
-                let productsResponse = JSON.parse(body).Responses[0].Result.ProductData;
-
-                for (let i = 0; i < productsResponse.length; i++) {
-                    let product = productsResponse[i];
-
-                    console.log('[RocketLeague] ProductID ' + product.ProductID + ' InstanceID ' + product.InstanceID);
+                    'PsySessionID': authSessionId,
+                    'PsyBuildID': RLBuildId,
+                    'PsyEnvironment': RLEnvironment,
+                    'User-Agent': RLUserAgent
                 }
             });
+
+            client.on('open', function () {
+                console.log('[RocketLeague] Connected to WebSocket.')
+
+                client.on('message', function (data) {
+                    // Parse message.
+                    let start = data.indexOf('\r\n\r\n')
+                    if (start !== -1) {
+                        start += 4
+                        let dataLen = data.length - start;
+                        if (dataLen === 0) {
+                            // No message data.
+                            console.log('No data was found.');
+                        } else {
+                            // We got a message.
+                            let jsonString = data.substring(start);
+                            let jsonPretty = JSON.stringify(JSON.parse(jsonString), null, 2);
+
+                            console.log(jsonPretty);
+                        }
+                    }
+                });
+
+                console.log('[RocketLeague] Requesting inventory of signed in player..');
+
+                // Create message.
+                let msgBody = JSON.stringify([
+                    {
+                        Service: 'Products/GetPlayerProducts',
+                        Version: 1,
+                        ID: 3,
+                        Params: {
+                            PlayerID: 'Steam|' + clientSteam.steamID.getSteamID64() + '|0'
+                        }
+                    }
+                ]);
+
+                // Create signature for the message.
+                let msgSignature = CryptoJS.HmacSHA256('-' + msgBody, RLKey).toString();
+                let msgSignatureBase = Buffer.from(msgSignature, 'hex').toString('base64');
+
+                // Setup headers.
+                let msgHeaders = "PsySig: " + msgSignatureBase + "\r\n" +
+                                 "PsyRequestID: PsyNetMessage_X_2\r\n" +
+                                 "\r\n";
+
+                // Create final message.
+                let msgFinal = msgHeaders + msgBody;
+
+                // Send message.
+                client.send(msgFinal);
+            })
         });
     });
 });
