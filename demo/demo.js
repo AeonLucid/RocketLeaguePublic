@@ -9,10 +9,10 @@ const RLAppId = 252950; // https://steamdb.info/app/252950/
 const RLEndpoint = 'https://psyonix-rl.appspot.com/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
-const RLUserAgent = 'RL Win/191017.56724.251203 gzip';
+const RLUserAgent = 'RL Win/191113.75055.254903 gzip';
 const RLLanguage = 'INT';
-const RLFeatureSet = 'PrimeUpdate29';
-const RLBuildId = '-1306624075';
+const RLFeatureSet = 'PrimeUpdate30';
+const RLBuildId = '-180521764';
 const RLEnvironment = 'Prod';
 
 const Config = require('./demo_config');
