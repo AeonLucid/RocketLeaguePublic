@@ -681,7 +681,9 @@ The response of this call is actually quite useful.
 ```
 **Result:**
 ```json
-
+{
+    "URL": "http://psyonix-rl.appspot.com/Static.json?BuildID=-1878310188&Platform=Steam&Language=INT&Environment=Prod"
+}
 ```
 
 ### 1.7.24. Skills/GetPlayerSkill
