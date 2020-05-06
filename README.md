@@ -477,7 +477,15 @@ Gets the amount of XP of the given player.
 ```
 **Result:**
 ```json
-
+{
+    "XPInfoResponse": {
+        "TotalXP": 536436546456356,
+        "XPLevel": 642,
+        "XPTitle": "",
+        "XPProgressInCurrentLevel": 1501,
+        "XPRequiredForNextLevel": 20000
+    }
+}
 ```
 
 ### 1.7.16. Population/UpdatePlayerPlaylist
