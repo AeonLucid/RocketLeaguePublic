@@ -437,7 +437,9 @@ Why would you use this? :')
 ```
 **Result:**
 ```json
-
+{
+    "Products": []
+}
 ```
 
 ### 1.7.14. Players/GetChatBanStatus
