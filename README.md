@@ -173,7 +173,8 @@ A request body looks like this.
     "PsyTag": {
         "Name": "name", 
         "Code": 0000}, 
-    "CountryRestrictions": ["KeyCrate"]}
+    "CountryRestrictions": ["KeyCrate"]
+}
 ```
 
 ### 1.7.2. Clubs/GetClubInvites
