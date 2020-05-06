@@ -396,10 +396,6 @@ I would be really careful with this one if I were you.
     ]
 }
 ```
-**Result:**
-```json
-
-```
 
 ### 1.7.10. Matchmaking/PlayerCancelPrivateMatch
 
