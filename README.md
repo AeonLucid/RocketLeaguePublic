@@ -163,6 +163,18 @@ A request body looks like this.
     "bSkipAuth": false
 }
 ```
+**Result:**
+```json
+{
+    "SessionID": "sessionid", 
+    "VerifiedPlayerName": "name", 
+    "UseWebSocket": true, 
+    "PerConURL": "url", 
+    "PsyTag": {
+        "Name": "name", 
+        "Code": 0000}, 
+    "CountryRestrictions": ["KeyCrate"]}
+```
 
 ### 1.7.2. Clubs/GetClubInvites
 
