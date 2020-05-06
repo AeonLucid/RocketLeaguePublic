@@ -700,7 +700,84 @@ Gets the ranking information for each ranked playlist of a specific player.
 ```
 **Result:**
 ```json
-
+{
+    "Skills": [
+        {
+            "Playlist": 0,
+            "Mu": 42.3449,
+            "Sigma": 2.8337,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 42.3449,
+            "WinStreak": 1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 10,
+            "Mu": 25.6839,
+            "Sigma": 8.13958,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 25.6839,
+            "WinStreak": 1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 11,
+            "Mu": 45.2342,
+            "Sigma": 3.5,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 45.2342,
+            "WinStreak": -1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 13,
+            "Mu": 45.5141,
+            "Sigma": 3.23682,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 45.5141,
+            "WinStreak": 2,
+            "MatchesPlayed": 7
+        },
+        {
+            "Playlist": 27,
+            "Mu": 38.5532,
+            "Sigma": 3.59969,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 38.5532,
+            "WinStreak": -5,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 28,
+            "Mu": 22.6323,
+            "Sigma": 6.88745,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 22.6323,
+            "WinStreak": 1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 30,
+            "Mu": 44.6283,
+            "Sigma": 4.79466,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 44.6283,
+            "WinStreak": -5,
+            "MatchesPlayed": 0
+        }
+    ],
+    "RewardLevels": {
+        "SeasonLevel": 0,
+        "SeasonLevelWins": 5
+    }
+}
 ```
 
 ### 1.7.25. Skills/GetSkillLeaderboard
