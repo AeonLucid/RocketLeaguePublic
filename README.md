@@ -363,7 +363,17 @@ All possible categories: MusicPlayerSave_TA, SoundSettingsSave_TA, UISavedValues
 ```
 **Result:**
 ```json
-
+{
+    "Items": [
+        {
+            "Category": "..",
+            "Data": "..",
+            "Tick": 1,
+            "Checksum": "43523452345",
+            "bChecksumMatch": false
+        }
+    ]
+}
 ```
 
 ### 1.7.9. GenericStorage/SetPlayerGenericStorage
