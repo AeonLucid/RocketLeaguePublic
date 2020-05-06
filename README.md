@@ -258,7 +258,9 @@ Gets all available DLC.
 ```
 **Result:**
 ```json
-
+{
+    "DLC": []
+}
 ```
 
 ### 1.7.5. Filters/FilterContent
