@@ -184,6 +184,12 @@ A request body looks like this.
 ```json
 {}
 ```
+**Result:**
+```json
+{
+    "ClubInvites": []
+}
+```
 
 ### 1.7.3. Clubs/GetPlayerClubDetails
 
