@@ -163,6 +163,19 @@ A request body looks like this.
     "bSkipAuth": false
 }
 ```
+**Result:**
+```json
+{
+    "SessionID": "sessionid", 
+    "VerifiedPlayerName": "name", 
+    "UseWebSocket": true, 
+    "PerConURL": "url", 
+    "PsyTag": {
+        "Name": "name", 
+        "Code": 0000}, 
+    "CountryRestrictions": ["KeyCrate"]
+}
+```
 
 ### 1.7.2. Clubs/GetClubInvites
 
@@ -171,6 +184,12 @@ A request body looks like this.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+{
+    "ClubInvites": []
+}
 ```
 
 ### 1.7.3. Clubs/GetPlayerClubDetails
@@ -183,6 +202,43 @@ A request body looks like this.
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
 ```
+**Result:**
+```json
+{
+    "ClubDetails": {
+        "ClubID": 0000,
+        "ClubName": "name",
+        "ClubTag": "name",
+        "MOTD": "desc",
+        "PrimaryColor": -10092527,
+        "AccentColor": -32816,
+        "OwnerPlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+        "Members": [
+            {
+                "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+                "PlayerName": "name",
+                "RoleName": "Owner",
+                "CreatedTime": "1535573427",
+                "DeletedTime": 0
+            },
+            {
+                "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+                "PlayerName": "name",
+                "RoleName": "Member",
+                "CreatedTime": "1535575218",
+                "DeletedTime": 0
+            }
+        ],
+        "Flags": [],
+        "bVerified": false,
+        "CreatedTime": 1535573413,
+        "LastUpdatedTime": 1562620061,
+        "NameLastUpdatedTime": 0,
+        "DeletedTime": 0
+    }
+}
+
+```
 
 ### 1.7.4. DLC/GetDLC
 
@@ -193,6 +249,12 @@ Gets all available DLC.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+{
+    "DLC": []
+}
 ```
 
 ### 1.7.5. Filters/FilterContent
@@ -206,6 +268,16 @@ Try it out for yourself.
 ```json
 {
     "Content": [
+        "Some name",
+        "Another name",
+        "More names.."
+    ]
+}
+```
+**Result:**
+```json
+{
+    "FilteredContent": [
         "Some name",
         "Another name",
         "More names.."
@@ -226,6 +298,12 @@ This call happens when you try to join a private match with name and password.
     "Password": "SomePassword.."
 }
 ```
+**Result:**
+```json
+{
+    "Servers": []
+}
+```
 
 ### 1.7.7. GameServer/GetGameServerPingList
 
@@ -236,6 +314,23 @@ Gets all server IPs, ports and their ping.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+{
+    "Servers": [
+        {
+            "Region": "ASC",
+            "Host": "ip43-239-136-105.datahound.com",
+            "Port": "7830"
+        },
+        {
+            "Region": "ASM",
+            "Host": "ip103-23-210-172.datahound.com",
+            "Port": "7838"
+        }
+    ]
+}
 ```
 
 ### 1.7.8. GenericStorage/GetPlayerGenericStorage
@@ -256,6 +351,20 @@ All possible categories: MusicPlayerSave_TA, SoundSettingsSave_TA, UISavedValues
             "Category": "..",
             "Tick": 0,
             "Checksum": 0
+        }
+    ]
+}
+```
+**Result:**
+```json
+{
+    "Items": [
+        {
+            "Category": "..",
+            "Data": "..",
+            "Tick": 1,
+            "Checksum": "43523452345",
+            "bChecksumMatch": false
         }
     ]
 }
@@ -290,6 +399,10 @@ I would be really careful with this one if I were you.
 ```json
 {}
 ```
+**Result:**
+```json
+{}
+```
 
 ### 1.7.11. Matchmaking/PlayerSearchPrivateMatch
 
@@ -302,6 +415,10 @@ This call happens when creating a private match.
 {
     "Region": "EU"
 }
+```
+**Result:**
+```json
+{}
 ```
 
 ### 1.7.12. Metrics/RecordMetrics
@@ -319,6 +436,12 @@ Why would you use this? :')
     "AuthCode": ""
 }
 ```
+**Result:**
+```json
+{
+    "Products": []
+}
+```
 
 ### 1.7.14. Players/GetChatBanStatus
 
@@ -329,6 +452,16 @@ Pretty self explanatory.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+{
+    "BannedUntil": 0,
+    "BannedMessage": null,
+    "BannedCitations": null,
+    "bPermanentlyBanned": false,
+    "bContributedToBan": false
+}
 ```
 
 ### 1.7.15. Players/GetXP
@@ -341,6 +474,18 @@ Gets the amount of XP of the given player.
 ```json
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
+}
+```
+**Result:**
+```json
+{
+    "XPInfoResponse": {
+        "TotalXP": 536436546456356,
+        "XPLevel": 642,
+        "XPTitle": "",
+        "XPProgressInCurrentLevel": 1501,
+        "XPRequiredForNextLevel": 20000
+    }
 }
 ```
 
@@ -356,6 +501,10 @@ Submits the amount of players in your party and the playlist you are playing.
     "Playlist": 0,
     "NumLocalPlayers": 1
 }
+```
+**Result:**
+```json
+{}
 ```
 
 ### 1.7.17. Products/GetContainerDropTable
@@ -388,6 +537,12 @@ Gets the information of specific product instance ids.
     ]
 }
 ```
+**Result:**
+```json
+{
+    "ProductData": []
+}
+```
 
 ### 1.7.19. Products/GetPlayerProducts
 
@@ -399,6 +554,22 @@ Gets the inventory of the given player. (Only yourself is allowed)
 ```json
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
+}
+```
+**Result:**
+```json
+{
+    "ProductData": [
+        {
+            "ProductID": 2363,
+            "InstanceID": "6456765456",
+            "Attributes": [],
+            "SeriesID": 19,
+            "AddedTimestamp": 1514740692,
+            "UpdatedTimestamp": 1514740692,
+            "TradeHold": -2
+        }
+    ]
 }
 ```
 
@@ -427,6 +598,29 @@ Gets the current tier, premium status and xp multiplier.
     "RocketPassID": 1
 }
 ```
+**Result:**
+```json
+{
+    "PrestigeRewards": [
+        {
+            "Tier": 71,
+            "ProductData": [
+                {
+                    "ProductID": 3316,
+                    "InstanceID": null,
+                    "Attributes": [],
+                    "SeriesID": 44,
+                    "AddedTimestamp": null,
+                    "UpdatedTimestamp": null
+                }
+            ],
+            "RewardDrops": [],
+            "CurrencyDrops": [],
+            "ContainerDrops": []
+        }
+    ]
+}
+```
 
 ### 1.7.22. RocketPass/GetRewardContent
 
@@ -439,6 +633,37 @@ Gets all possible rewards of the ~~battle~~ rocket pass.
 {
     "RocketPassID": 1,
     "TierCap": 0
+}
+```
+**Result:**
+```json
+{
+    "TierCap": 70,
+    "FreeRewards": [
+        {
+            "Tier": 1,
+            "ProductData": [],
+            "XPRewards": [],
+            "CurrencyDrops": []
+        }
+    ],
+    "PremiumRewards": [
+        {
+            "Tier": 1,
+            "ProductData": [
+                {
+                    "ProductID": "3155",
+                    "InstanceID": null,
+                    "Attributes": [],
+                    "SeriesID": 39,
+                    "AddedTimestamp": null,
+                    "UpdatedTimestamp": null
+                }
+            ],
+            "XPRewards": [],
+            "CurrencyDrops": []
+        }
+    ]
 }
 ```
 
@@ -455,6 +680,12 @@ The response of this call is actually quite useful.
     "Language": "INT"
 }
 ```
+**Result:**
+```json
+{
+    "URL": "http://psyonix-rl.appspot.com/Static.json?BuildID=-1878310188&Platform=Steam&Language=INT&Environment=Prod"
+}
+```
 
 ### 1.7.24. Skills/GetPlayerSkill
 
@@ -466,6 +697,87 @@ Gets the ranking information for each ranked playlist of a specific player.
 ```json
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
+}
+```
+**Result:**
+```json
+{
+    "Skills": [
+        {
+            "Playlist": 0,
+            "Mu": 42.3449,
+            "Sigma": 2.8337,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 42.3449,
+            "WinStreak": 1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 10,
+            "Mu": 25.6839,
+            "Sigma": 8.13958,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 25.6839,
+            "WinStreak": 1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 11,
+            "Mu": 45.2342,
+            "Sigma": 3.5,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 45.2342,
+            "WinStreak": -1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 13,
+            "Mu": 45.5141,
+            "Sigma": 3.23682,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 45.5141,
+            "WinStreak": 2,
+            "MatchesPlayed": 7
+        },
+        {
+            "Playlist": 27,
+            "Mu": 38.5532,
+            "Sigma": 3.59969,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 38.5532,
+            "WinStreak": -5,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 28,
+            "Mu": 22.6323,
+            "Sigma": 6.88745,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 22.6323,
+            "WinStreak": 1,
+            "MatchesPlayed": 0
+        },
+        {
+            "Playlist": 30,
+            "Mu": 44.6283,
+            "Sigma": 4.79466,
+            "Tier": 0,
+            "Division": 0,
+            "MMR": 44.6283,
+            "WinStreak": -5,
+            "MatchesPlayed": 0
+        }
+    ],
+    "RewardLevels": {
+        "SeasonLevel": 0,
+        "SeasonLevelWins": 5
+    }
 }
 ```
 
@@ -494,6 +806,15 @@ Gets the ranking info of a specific player in the given playlist.
 {
     "Playlist": 10,
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
+}
+```
+**Result:**
+```json
+{
+    "LeaderboardID": "Skill10",
+    "bHasSkill": true,
+    "MMR": 25.6839,
+    "Value": 0
 }
 ```
 
@@ -533,6 +854,14 @@ Gets the ranking info of a specific player in the given stat leaderboard.
 ```json
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
+}
+```
+**Result:**
+```json
+{
+    "CreatorOf": [],
+    "Registered": [],
+    "Tournaments": []
 }
 ```
 
