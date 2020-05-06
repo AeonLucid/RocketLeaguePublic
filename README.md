@@ -636,7 +636,34 @@ Gets all possible rewards of the ~~battle~~ rocket pass.
 ```
 **Result:**
 ```json
-
+{
+    "TierCap": 70,
+    "FreeRewards": [
+        {
+            "Tier": 1,
+            "ProductData": [],
+            "XPRewards": [],
+            "CurrencyDrops": []
+        }
+    ],
+    "PremiumRewards": [
+        {
+            "Tier": 1,
+            "ProductData": [
+                {
+                    "ProductID": "3155",
+                    "InstanceID": null,
+                    "Attributes": [],
+                    "SeriesID": 39,
+                    "AddedTimestamp": null,
+                    "UpdatedTimestamp": null
+                }
+            ],
+            "XPRewards": [],
+            "CurrencyDrops": []
+        }
+    ]
+}
 ```
 
 ### 1.7.23. Settings/GetStaticDataURL
