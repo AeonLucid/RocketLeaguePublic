@@ -809,7 +809,12 @@ Gets the ranking info of a specific player in the given playlist.
 ```
 **Result:**
 ```json
-
+{
+    "LeaderboardID": "Skill10",
+    "bHasSkill": true,
+    "MMR": 25.6839,
+    "Value": 0
+}
 ```
 
 ### 1.7.27. Stats/GetStatLeaderboard
