@@ -71,7 +71,7 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 | Key | Value | Authenticated only |
 |-|-|-|
 | User-Agent | RL Win/181206.63350.217951 gzip | No |
-| PsyBuildID | -195435727 | No |
+| PsyBuildID | -1878310188 | No |
 | PsyEnvironment | Prod | No |
 | PsyRequestID | See [Requests](#17-requests) | No |
 | PsySig | See [Signing](#15-signing) | No |
@@ -158,7 +158,7 @@ A request body looks like this.
     "Language": "INT",
     "AuthTicket": "Steam EncryptedAppTicket, see demo/demo.js for an example",
     "BuildRegion": "",
-    "FeatureSet": "PrimeUpdate23",
+    "FeatureSet": "PrimeUpdate31",
     "bTrial": false,
     "bSkipAuth": false
 }
