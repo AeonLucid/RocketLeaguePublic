@@ -203,6 +203,46 @@ A request body looks like this.
 ```
 **Result:**
 ```json
+{
+    "ClubDetails": {
+        "ClubID": 0000,
+        "ClubName": "name",
+        "ClubTag": "name",
+        "MOTD": "desc",
+        "PrimaryColor": -10092527,
+        "AccentColor": -32816,
+        "OwnerPlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+        "Members": [
+            {
+                "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+                "PlayerName": "name",
+                "RoleName": "Owner",
+                "CreatedTime": "1535573427",
+                "DeletedTime": 0
+            },
+            {
+                "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+                "PlayerName": "name",
+                "RoleName": "Member",
+                "CreatedTime": "1535575218",
+                "DeletedTime": 0
+            },
+            {
+                "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
+                "PlayerName": "name",
+                "RoleName": "Member",
+                "CreatedTime": "1535718242",
+                "DeletedTime": 0
+            }
+        ],
+        "Flags": [],
+        "bVerified": false,
+        "CreatedTime": 1535573413,
+        "LastUpdatedTime": 1562620061,
+        "NameLastUpdatedTime": 0,
+        "DeletedTime": 0
+    }
+}
 
 ```
 
