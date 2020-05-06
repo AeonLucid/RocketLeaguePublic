@@ -417,7 +417,7 @@ This call happens when creating a private match.
 ```
 **Result:**
 ```json
-
+{}
 ```
 
 ### 1.7.12. Metrics/RecordMetrics
