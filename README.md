@@ -844,10 +844,6 @@ Gets the ranking info of a specific player in the given stat leaderboard.
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
 ```
-**Result:**
-```json
-
-```
 
 ### 1.7.29. Tournaments/Status/GetTournamentSubscriptions
 
