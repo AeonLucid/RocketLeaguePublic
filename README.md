@@ -830,10 +830,6 @@ Gets the top 100 players for the given stat.
     "bDisableCrossPlay": true
 }
 ```
-**Result:**
-```json
-
-```
 
 ### 1.7.28. Stats/GetStatLeaderboardValueForUser
 
