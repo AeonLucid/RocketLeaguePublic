@@ -282,7 +282,13 @@ Try it out for yourself.
 ```
 **Result:**
 ```json
-
+{
+    "FilteredContent": [
+        "Some name",
+        "Another name",
+        "More names.."
+    ]
+}
 ```
 
 ### 1.7.6. GameServer/FindPrivateServer
