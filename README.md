@@ -538,7 +538,9 @@ Gets the information of specific product instance ids.
 ```
 **Result:**
 ```json
-
+{
+    "ProductData": []
+}
 ```
 
 ### 1.7.19. Products/GetPlayerProducts
