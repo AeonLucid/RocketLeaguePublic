@@ -306,7 +306,9 @@ This call happens when you try to join a private match with name and password.
 ```
 **Result:**
 ```json
-
+{
+    "Servers": []
+}
 ```
 
 ### 1.7.7. GameServer/GetGameServerPingList
