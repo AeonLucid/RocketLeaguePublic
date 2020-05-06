@@ -793,10 +793,6 @@ Gets the top 100 players for the given playlist.
     "bDisableCrossPlay": true
 }
 ```
-**Result:**
-```json
-
-```
 
 ### 1.7.26. Skills/GetSkillLeaderboardValueForUser
 
