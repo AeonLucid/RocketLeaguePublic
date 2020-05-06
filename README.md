@@ -454,7 +454,13 @@ Pretty self explanatory.
 ```
 **Result:**
 ```json
-
+{
+    "BannedUntil": 0,
+    "BannedMessage": null,
+    "BannedCitations": null,
+    "bPermanentlyBanned": false,
+    "bContributedToBan": false
+}
 ```
 
 ### 1.7.15. Players/GetXP
