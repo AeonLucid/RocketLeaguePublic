@@ -857,7 +857,11 @@ Gets the ranking info of a specific player in the given stat leaderboard.
 ```
 **Result:**
 ```json
-
+{
+    "CreatorOf": [],
+    "Registered": [],
+    "Tournaments": []
+}
 ```
 
 ## 1.8. Possible Frequently Asked Questions
