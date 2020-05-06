@@ -518,10 +518,6 @@ Gets the possible outcome for all crates.
     "GameVersion": 25
 }
 ```
-**Result:**
-```json
-
-```
 
 ### 1.7.18. Products/GetLoadoutProducts
 
