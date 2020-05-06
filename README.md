@@ -557,7 +557,19 @@ Gets the inventory of the given player. (Only yourself is allowed)
 ```
 **Result:**
 ```json
-
+{
+    "ProductData": [
+        {
+            "ProductID": 2363,
+            "InstanceID": "6456765456",
+            "Attributes": [],
+            "SeriesID": 19,
+            "AddedTimestamp": 1514740692,
+            "UpdatedTimestamp": 1514740692,
+            "TradeHold": -2
+        }
+    ]
+}
 ```
 
 ### 1.7.20. RocketPass/GetPlayerInfo
