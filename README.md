@@ -585,10 +585,6 @@ Gets the current tier, premium status and xp multiplier.
     "RocketPassID": 1
 }
 ```
-**Result:**
-```json
-
-```
 
 ### 1.7.21. RocketPass/GetPlayerPrestigeRewards
 
