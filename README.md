@@ -503,7 +503,7 @@ Submits the amount of players in your party and the playlist you are playing.
 ```
 **Result:**
 ```json
-
+{}
 ```
 
 ### 1.7.17. Products/GetContainerDropTable
