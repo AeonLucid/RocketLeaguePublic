@@ -201,6 +201,10 @@ A request body looks like this.
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.4. DLC/GetDLC
 
@@ -211,6 +215,10 @@ Gets all available DLC.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.5. Filters/FilterContent
@@ -230,6 +238,10 @@ Try it out for yourself.
     ]
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.6. GameServer/FindPrivateServer
 
@@ -244,6 +256,10 @@ This call happens when you try to join a private match with name and password.
     "Password": "SomePassword.."
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.7. GameServer/GetGameServerPingList
 
@@ -254,6 +270,10 @@ Gets all server IPs, ports and their ping.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.8. GenericStorage/GetPlayerGenericStorage
@@ -278,6 +298,10 @@ All possible categories: MusicPlayerSave_TA, SoundSettingsSave_TA, UISavedValues
     ]
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.9. GenericStorage/SetPlayerGenericStorage
 
@@ -299,6 +323,10 @@ I would be really careful with this one if I were you.
     ]
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.10. Matchmaking/PlayerCancelPrivateMatch
 
@@ -307,6 +335,10 @@ I would be really careful with this one if I were you.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.11. Matchmaking/PlayerSearchPrivateMatch
@@ -320,6 +352,10 @@ This call happens when creating a private match.
 {
     "Region": "EU"
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.12. Metrics/RecordMetrics
@@ -337,6 +373,10 @@ Why would you use this? :')
     "AuthCode": ""
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.14. Players/GetChatBanStatus
 
@@ -347,6 +387,10 @@ Pretty self explanatory.
 **Params:** 
 ```json
 {}
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.15. Players/GetXP
@@ -360,6 +404,10 @@ Gets the amount of XP of the given player.
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.16. Population/UpdatePlayerPlaylist
@@ -375,6 +423,10 @@ Submits the amount of players in your party and the playlist you are playing.
     "NumLocalPlayers": 1
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.17. Products/GetContainerDropTable
 
@@ -387,6 +439,10 @@ Gets the possible outcome for all crates.
 {
     "GameVersion": 25
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.18. Products/GetLoadoutProducts
@@ -406,6 +462,10 @@ Gets the information of specific product instance ids.
     ]
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.19. Products/GetPlayerProducts
 
@@ -418,6 +478,10 @@ Gets the inventory of the given player. (Only yourself is allowed)
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.20. RocketPass/GetPlayerInfo
@@ -432,6 +496,10 @@ Gets the current tier, premium status and xp multiplier.
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
     "RocketPassID": 1
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.21. RocketPass/GetPlayerPrestigeRewards
@@ -459,6 +527,10 @@ Gets all possible rewards of the ~~battle~~ rocket pass.
     "TierCap": 0
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.23. Settings/GetStaticDataURL
 
@@ -473,6 +545,10 @@ The response of this call is actually quite useful.
     "Language": "INT"
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.24. Skills/GetPlayerSkill
 
@@ -485,6 +561,10 @@ Gets the ranking information for each ranked playlist of a specific player.
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.25. Skills/GetSkillLeaderboard
@@ -500,6 +580,10 @@ Gets the top 100 players for the given playlist.
     "bDisableCrossPlay": true
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.26. Skills/GetSkillLeaderboardValueForUser
 
@@ -513,6 +597,10 @@ Gets the ranking info of a specific player in the given playlist.
     "Playlist": 10,
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
+```
+**Result:**
+```json
+
 ```
 
 ### 1.7.27. Stats/GetStatLeaderboard
@@ -528,6 +616,10 @@ Gets the top 100 players for the given stat.
     "bDisableCrossPlay": true
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.28. Stats/GetStatLeaderboardValueForUser
 
@@ -542,6 +634,10 @@ Gets the ranking info of a specific player in the given stat leaderboard.
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
 ```
+**Result:**
+```json
+
+```
 
 ### 1.7.29. Tournaments/Status/GetTournamentSubscriptions
 
@@ -552,6 +648,10 @@ Gets the ranking info of a specific player in the given stat leaderboard.
 {
     "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
 }
+```
+**Result:**
+```json
+
 ```
 
 ## 1.8. Possible Frequently Asked Questions
