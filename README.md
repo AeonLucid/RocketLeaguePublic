@@ -597,6 +597,29 @@ Gets the current tier, premium status and xp multiplier.
     "RocketPassID": 1
 }
 ```
+**Result:**
+```json
+{
+    "PrestigeRewards": [
+        {
+            "Tier": 71,
+            "ProductData": [
+                {
+                    "ProductID": 3316,
+                    "InstanceID": null,
+                    "Attributes": [],
+                    "SeriesID": 44,
+                    "AddedTimestamp": null,
+                    "UpdatedTimestamp": null
+                }
+            ],
+            "RewardDrops": [],
+            "CurrencyDrops": [],
+            "ContainerDrops": []
+        }
+    ]
+}
+```
 
 ### 1.7.22. RocketPass/GetRewardContent
 
