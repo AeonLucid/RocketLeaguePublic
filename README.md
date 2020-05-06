@@ -226,13 +226,6 @@ A request body looks like this.
                 "RoleName": "Member",
                 "CreatedTime": "1535575218",
                 "DeletedTime": 0
-            },
-            {
-                "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0",
-                "PlayerName": "name",
-                "RoleName": "Member",
-                "CreatedTime": "1535718242",
-                "DeletedTime": 0
             }
         ],
         "Flags": [],
@@ -407,7 +400,7 @@ I would be really careful with this one if I were you.
 ```
 **Result:**
 ```json
-
+{}
 ```
 
 ### 1.7.11. Matchmaking/PlayerSearchPrivateMatch
