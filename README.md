@@ -323,7 +323,20 @@ Gets all server IPs, ports and their ping.
 ```
 **Result:**
 ```json
-
+{
+    "Servers": [
+        {
+            "Region": "ASC",
+            "Host": "ip43-239-136-105.datahound.com",
+            "Port": "7830"
+        },
+        {
+            "Region": "ASM",
+            "Host": "ip103-23-210-172.datahound.com",
+            "Port": "7838"
+        }
+    ]
+}
 ```
 
 ### 1.7.8. GenericStorage/GetPlayerGenericStorage
