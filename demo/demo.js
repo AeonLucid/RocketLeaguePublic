@@ -12,7 +12,7 @@ const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 const RLUserAgent = 'RL Win/191113.75055.254903 gzip';
 const RLLanguage = 'INT';
 const RLFeatureSet = 'PrimeUpdate31';
-const RLBuildId = '-1878310188';
+const RLBuildId = '-1265355515';
 const RLEnvironment = 'Prod';
 
 const Config = require('./demo_config');
