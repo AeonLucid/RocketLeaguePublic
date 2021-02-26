@@ -53,7 +53,7 @@ This repository contains all information necessary to consume the `/Services` AP
 
 ## 1.2. Endpoints
 
-The game uses `https://psyonix-rl.appspot.com/Services` to grab configuration values and do authentication.  
+The game uses `https://api.rlpp.psynet.gg/Services` to grab configuration values and do authentication.  
 When authentication has been successful, it connects to a websocket at `wss://rl-psy.net/ws?PsyConnectionType=Player`.
 
 It is possible to keep using the HTTP api instead of the websocket server. I have not looked at connecting to the websocket server yet, but I assume you send the same headers as you would for an authenticated request for the handshake and then send & receive json requests.
@@ -71,7 +71,7 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 | Key | Value | Authenticated only |
 |-|-|-|
 | User-Agent | RL Win/181206.63350.217951 gzip | No |
-| PsyBuildID | -1265355515 | No |
+| PsyBuildID | -1667045693 | No |
 | PsyEnvironment | Prod | No |
 | PsyRequestID | See [Requests](#17-requests) | No |
 | PsySig | See [Signing](#15-signing) | No |
