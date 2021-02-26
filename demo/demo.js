@@ -6,7 +6,7 @@
  */
 
 const RLAppId = 252950; // https://steamdb.info/app/252950/
-const RLEndpoint = 'https://psyonix-rl.appspot.com/Services';
+const RLEndpoint = 'https://api.rlpp.psynet.gg/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
 const RLUserAgent = 'RL Win/191113.75055.254903 gzip';
