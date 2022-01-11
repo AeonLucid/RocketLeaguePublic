@@ -6,13 +6,13 @@
  */
 
 const RLAppId = 252950; // https://steamdb.info/app/252950/
-const RLEndpoint = 'https://psyonix-rl.appspot.com/Services';
+const RLEndpoint = 'https://api.rlpp.psynet.gg/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
 const RLUserAgent = 'RL Win/191113.75055.254903 gzip';
 const RLLanguage = 'INT';
-const RLFeatureSet = 'PrimeUpdate31';
-const RLBuildId = '-1265355515';
+const RLFeatureSet = 'PrimeUpdate33';
+const RLBuildId = '-1667045693';
 const RLEnvironment = 'Prod';
 
 const Config = require('./demo_config');
