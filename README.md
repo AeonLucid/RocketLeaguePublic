@@ -178,7 +178,6 @@ A request body looks like this.
     "CountryRestrictions": ["KeyCrate"]
 }
 ```
-
 ### 1.7.2. Clubs/GetClubInvites
 
 **Auth:** Yes  
@@ -242,7 +241,56 @@ A request body looks like this.
 
 ```
 
-### 1.7.4. DLC/GetDLC
+### 1.7.4 Codes/RedeemCode
+
+Attempts to redeem a code.
+
+**Auth:** Yes  
+**Version:** 2  
+**Params:** 
+```json
+{
+  "Code": "CODE",
+  "PlayerID": "Steam|XXXXXXXXXXXXXXXXXX|0"
+}
+```
+**Result if successful:**
+```json
+{
+  "Result": {
+    "Drops": [
+      {
+        "ProductID": "2879",
+        "InstanceID": "00000000000000000000000579ed4c93",
+        "Attributes": [],
+        "SeriesID": 30,
+        "AddedTimestamp": 1645825416,
+        "UpdatedTimestamp": 1645825416
+      }
+    ]
+  }
+}
+```
+**Result if code has already been claimed:**
+```json
+{
+  "Error": {
+    "Type": "CodeHasBeenRedeemed",
+    "Message": ""
+  }
+}
+```
+**Result if not valid:**
+```json
+{
+  "Error": {
+    "Type": "CodeIsNotValid",
+    "Message": ""
+  }
+}
+```
+
+### 1.7.5. DLC/GetDLC
 
 Gets all available DLC.
 
@@ -259,7 +307,8 @@ Gets all available DLC.
 }
 ```
 
-### 1.7.5. Filters/FilterContent
+### 1.7.6. Filters/FilterContent
+
 
 This is the best call of them all.  
 Try it out for yourself.
@@ -287,7 +336,7 @@ Try it out for yourself.
 }
 ```
 
-### 1.7.6. GameServer/FindPrivateServer
+### 1.7.7. GameServer/FindPrivateServer
 
 This call happens when you try to join a private match with name and password.
 
@@ -307,7 +356,7 @@ This call happens when you try to join a private match with name and password.
 }
 ```
 
-### 1.7.7. GameServer/GetGameServerPingList
+### 1.7.8. GameServer/GetGameServerPingList
 
 Gets all server IPs, ports and their ping.
 
@@ -335,7 +384,7 @@ Gets all server IPs, ports and their ping.
 }
 ```
 
-### 1.7.8. GenericStorage/GetPlayerGenericStorage
+### 1.7.9. GenericStorage/GetPlayerGenericStorage
 
 You have to play with this call yourself a bit, because I don't know if it is useful.  
 The response looks pretty boring to me.
@@ -372,7 +421,7 @@ All possible categories: MusicPlayerSave_TA, SoundSettingsSave_TA, UISavedValues
 }
 ```
 
-### 1.7.9. GenericStorage/SetPlayerGenericStorage
+### 1.7.10. GenericStorage/SetPlayerGenericStorage
 
 I would be really careful with this one if I were you.
 
@@ -393,7 +442,7 @@ I would be really careful with this one if I were you.
 }
 ```
 
-### 1.7.10. Matchmaking/PlayerCancelPrivateMatch
+### 1.7.11. Matchmaking/PlayerCancelPrivateMatch
 
 **Auth:** Yes  
 **Version:** 1  
@@ -406,7 +455,7 @@ I would be really careful with this one if I were you.
 {}
 ```
 
-### 1.7.11. Matchmaking/PlayerSearchPrivateMatch
+### 1.7.12. Matchmaking/PlayerSearchPrivateMatch
 
 This call happens when creating a private match.
 
@@ -423,11 +472,11 @@ This call happens when creating a private match.
 {}
 ```
 
-### 1.7.12. Metrics/RecordMetrics
+### 1.7.13. Metrics/RecordMetrics
 
 Why would you use this? :')
 
-### 1.7.13. Microtransaction/ClaimEntitlements
+### 1.7.14. Microtransaction/ClaimEntitlements
 
 **Auth:** Yes  
 **Version:** 1  
@@ -445,7 +494,7 @@ Why would you use this? :')
 }
 ```
 
-### 1.7.14. Players/GetChatBanStatus
+### 1.7.15. Players/GetChatBanStatus
 
 Pretty self explanatory.
 
@@ -466,7 +515,7 @@ Pretty self explanatory.
 }
 ```
 
-### 1.7.15. Players/GetXP
+### 1.7.16. Players/GetXP
 
 Gets the amount of XP of the given player.
 
@@ -491,7 +540,7 @@ Gets the amount of XP of the given player.
 }
 ```
 
-### 1.7.16. Population/UpdatePlayerPlaylist
+### 1.7.17. Population/UpdatePlayerPlaylist
 
 Submits the amount of players in your party and the playlist you are playing.
 
@@ -509,7 +558,7 @@ Submits the amount of players in your party and the playlist you are playing.
 {}
 ```
 
-### 1.7.17. Products/GetContainerDropTable
+### 1.7.18. Products/GetContainerDropTable
 
 Gets the possible outcome for all crates.
 
@@ -522,7 +571,7 @@ Gets the possible outcome for all crates.
 }
 ```
 
-### 1.7.18. Products/GetLoadoutProducts
+### 1.7.19. Products/GetLoadoutProducts
 
 Gets the information of specific product instance ids.
 
@@ -546,7 +595,7 @@ Gets the information of specific product instance ids.
 }
 ```
 
-### 1.7.19. Products/GetPlayerProducts
+### 1.7.20. Products/GetPlayerProducts
 
 Gets the inventory of the given player. (Only yourself is allowed)
 
@@ -575,7 +624,7 @@ Gets the inventory of the given player. (Only yourself is allowed)
 }
 ```
 
-### 1.7.20. RocketPass/GetPlayerInfo
+### 1.7.21. RocketPass/GetPlayerInfo
 
 Gets the current tier, premium status and xp multiplier.
 
@@ -589,7 +638,7 @@ Gets the current tier, premium status and xp multiplier.
 }
 ```
 
-### 1.7.21. RocketPass/GetPlayerPrestigeRewards
+### 1.7.22. RocketPass/GetPlayerPrestigeRewards
 
 **Auth:** Yes  
 **Version:** 1  
@@ -624,7 +673,7 @@ Gets the current tier, premium status and xp multiplier.
 }
 ```
 
-### 1.7.22. RocketPass/GetRewardContent
+### 1.7.23. RocketPass/GetRewardContent
 
 Gets all possible rewards of the ~~battle~~ rocket pass.
 
@@ -669,7 +718,7 @@ Gets all possible rewards of the ~~battle~~ rocket pass.
 }
 ```
 
-### 1.7.23. Settings/GetStaticDataURL
+### 1.7.24. Settings/GetStaticDataURL
 
 The response of this call is actually quite useful.
 
@@ -689,7 +738,7 @@ The response of this call is actually quite useful.
 }
 ```
 
-### 1.7.24. Skills/GetPlayerSkill
+### 1.7.25. Skills/GetPlayerSkill
 
 Gets the ranking information for each ranked playlist of a specific player.
 
@@ -783,7 +832,7 @@ Gets the ranking information for each ranked playlist of a specific player.
 }
 ```
 
-### 1.7.25. Skills/GetSkillLeaderboard
+### 1.7.26. Skills/GetSkillLeaderboard
 
 Gets the top 100 players for the given playlist.
 
@@ -797,7 +846,7 @@ Gets the top 100 players for the given playlist.
 }
 ```
 
-### 1.7.26. Skills/GetSkillLeaderboardValueForUser
+### 1.7.27. Skills/GetSkillLeaderboardValueForUser
 
 Gets the ranking info of a specific player in the given playlist.
 
@@ -820,7 +869,7 @@ Gets the ranking info of a specific player in the given playlist.
 }
 ```
 
-### 1.7.27. Stats/GetStatLeaderboard
+### 1.7.28. Stats/GetStatLeaderboard
 
 Gets the top 100 players for the given stat.
 
@@ -834,7 +883,7 @@ Gets the top 100 players for the given stat.
 }
 ```
 
-### 1.7.28. Stats/GetStatLeaderboardValueForUser
+### 1.7.29. Stats/GetStatLeaderboardValueForUser
 
 Gets the ranking info of a specific player in the given stat leaderboard.
 
@@ -848,7 +897,7 @@ Gets the ranking info of a specific player in the given stat leaderboard.
 }
 ```
 
-### 1.7.29. Tournaments/Status/GetTournamentSubscriptions
+### 1.7.30. Tournaments/Status/GetTournamentSubscriptions
 
 **Auth:** Yes  
 **Version:** 1  
