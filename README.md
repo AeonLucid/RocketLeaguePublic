@@ -16,7 +16,8 @@ This repository contains all information necessary to consume the `/Services` AP
         - [1.5.2. Responses](#152-responses)
     - [1.6. Authentication](#16-authentication)
     - [1.7. Requests](#17-requests)
-        - [1.7.1. Auth/AuthPlayer](#171-authauthplayer)
+        - [1.7.1. Auth/AuthPlayer (STEAM)](#171-authauthplayer-steam)
+        - [1.7.1. Auth/AuthPlayer (EPIC)](#171-authauthplayer-epic)
         - [1.7.2. Clubs/GetClubInvites](#172-clubsgetclubinvites)
         - [1.7.3. Clubs/GetPlayerClubDetails](#173-clubsgetplayerclubdetails)
         - [1.7.4. Codes/RedeemCode](#174-codesredeemcode)
@@ -147,7 +148,7 @@ A request body looks like this.
 
 > About all fields like `PlayerID`, its format means `<Platform>|<UniqueId>|<SplitscreenId>`.
 
-### 1.7.1. Auth/AuthPlayer
+### 1.7.1. Auth/AuthPlayer Steam
 
 **Auth:** No  
 **Version:** 1  
@@ -179,6 +180,46 @@ A request body looks like this.
     "CountryRestrictions": ["KeyCrate"]
 }
 ```
+
+### 1.7.1. Auth/AuthPlayer Epic
+
+**Auth:** No  
+**Version:** 2  
+**Params:** 
+```json
+{
+    "Platform": "Epic",
+    "PlayerName": "Your Epic display name",
+    "PlayerID": "Your Epic ID",
+    "Language": "INT",
+    "AuthTicket": "Epic EncryptedAppTicket, see demo/demo.js for an example",
+    "BuildRegion": "",
+    "FeatureSet": "PrimeUpdate36_2",
+    "bTrial": false,
+    "bSkipAuth": false,
+    "bSetAsPrimaryAccount": false,
+    "EpicAuthTicket": "Same as AuthTicket",
+    "EpicAccountID": "Same as PlayerID"
+}
+```
+**Result:**
+```json
+{
+    "SessionID": "sessionid",
+    "VerifiedPlayerName": "name",
+    "UseWebSocket": true,
+    "PerConURL": "url",
+    "PerConURLv2": "url version 2",
+    "PsyToken": "Token",
+    "PsyTag": {
+      "Name": "name",
+      "Code": 0000
+    },
+    "IsLastChanceAuthBan": false,
+    "CountryRestrictions": []
+}
+```
+
 ### 1.7.2. Clubs/GetClubInvites
 
 **Auth:** Yes  
