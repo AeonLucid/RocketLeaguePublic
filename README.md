@@ -176,7 +176,8 @@ A request body looks like this.
     "PerConURL": "url", 
     "PsyTag": {
         "Name": "name", 
-        "Code": 0000}, 
+        "Code": 0000
+    }, 
     "CountryRestrictions": ["KeyCrate"]
 }
 ```
