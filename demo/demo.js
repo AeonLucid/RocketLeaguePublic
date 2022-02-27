@@ -9,10 +9,10 @@ const RLAppId = 252950; // https://steamdb.info/app/252950/
 const RLEndpoint = 'https://api.rlpp.psynet.gg/Services';
 const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
 
-const RLUserAgent = 'RL Win/191113.75055.254903 gzip';
+const RLUserAgent = 'RL Win/211123.48895.355454 gzip';
 const RLLanguage = 'INT';
-const RLFeatureSet = 'PrimeUpdate33';
-const RLBuildId = '-1667045693';
+const RLFeatureSet = 'PrimeUpdate36_2';
+const RLBuildId = '-960700785';
 const RLEnvironment = 'Prod';
 
 const Config = require('./demo_config');
@@ -20,6 +20,8 @@ const Utils = require('./lib/utils');
 const SteamUser = require('steam-user');
 const CryptoJS = require('crypto-js');
 const WebSocket = require('ws')
+
+
 
 let request = require('request');
 let clientSteam = new SteamUser();
@@ -36,6 +38,12 @@ if (!Config.password) {
 }
 
 if (!Config.displayName) {
+    console.log('Field "displayName" is missing from the config.');
+    return;
+}
+
+
+if (!Config.EpicAccountID) {
     console.log('Field "displayName" is missing from the config.');
     return;
 }
@@ -62,7 +70,7 @@ clientSteam.on('loggedOn', details => {
         let authRequest = JSON.stringify([
             {
                 Service: 'Auth/AuthPlayer',
-                Version: 1,
+                Version: 2,
                 ID: 1,
                 Params: {
                     Platform: 'Steam',
@@ -70,14 +78,19 @@ clientSteam.on('loggedOn', details => {
                     PlayerID: clientSteam.steamID.getSteamID64(),
                     Language: RLLanguage,
                     AuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
+                    EpicAuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
                     BuildRegion: '',
                     FeatureSet: RLFeatureSet,
-                    bSkipAuth: false
+                    bSkipAuth: false,
+		    EpicAccountID: Config.EpicAccountID
                 }
             }
         ]);
+		
+		
 
         let authSignature = CryptoJS.HmacSHA256('-' + authRequest, RLKey).toString();
+		
 
         request.post({
             url: RLEndpoint,
@@ -95,7 +108,7 @@ clientSteam.on('loggedOn', details => {
             if (error) {
                 return console.log('[RocketLeague] Auth failed: ' + error);
             }
-
+		
             // Step 4: Consume tokens to send authenticated requests.
             let authResponse = JSON.parse(body).Responses[0].Result;
             if (authResponse === undefined) {
