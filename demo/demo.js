@@ -44,7 +44,7 @@ if (!Config.displayName) {
 
 
 if (!Config.EpicAccountID) {
-    console.log('Field "displayName" is missing from the config.');
+    console.log('Field "EpicAccountID" is missing from the config.');
     return;
 }
 
