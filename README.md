@@ -16,37 +16,38 @@ This repository contains all information necessary to consume the `/Services` AP
         - [1.5.2. Responses](#152-responses)
     - [1.6. Authentication](#16-authentication)
     - [1.7. Requests](#17-requests)
-        - [1.7.1. Auth/AuthPlayer (STEAM)](#171-authauthplayer-steam)
-        - [1.7.1. Auth/AuthPlayer (EPIC)](#171-authauthplayer-epic)
-        - [1.7.2. Clubs/GetClubInvites](#172-clubsgetclubinvites)
-        - [1.7.3. Clubs/GetPlayerClubDetails](#173-clubsgetplayerclubdetails)
-        - [1.7.4. Codes/RedeemCode](#174-codesredeemcode)
-        - [1.7.5. DLC/GetDLC](#175-dlcgetdlc)
-        - [1.7.6. Filters/FilterContent](#176-filtersfiltercontent)
-        - [1.7.7. GameServer/FindPrivateServer](#177-gameserverfindprivateserver)
-        - [1.7.8. GameServer/GetGameServerPingList](#178-gameservergetgameserverpinglist)
-        - [1.7.9. GenericStorage/GetPlayerGenericStorage](#179-genericstoragegetplayergenericstorage)
-        - [1.7.10. GenericStorage/SetPlayerGenericStorage](#1710-genericstoragesetplayergenericstorage)
-        - [1.7.11. Matchmaking/PlayerCancelPrivateMatch](#1711-matchmakingplayercancelprivatematch)
-        - [1.7.12. Matchmaking/PlayerSearchPrivateMatch](#1712-matchmakingplayersearchprivatematch)
-        - [1.7.13. Metrics/RecordMetrics](#1713-metricsrecordmetrics)
-        - [1.7.14. Microtransaction/ClaimEntitlements](#1714-microtransactionclaimentitlements)
-        - [1.7.15. Players/GetChatBanStatus](#1715-playersgetchatbanstatus)
-        - [1.7.16. Players/GetXP](#1716-playersgetxp)
-        - [1.7.17. Population/UpdatePlayerPlaylist](#1717-populationupdateplayerplaylist)
-        - [1.7.18. Products/GetContainerDropTable](#1718-productsgetcontainerdroptable)
-        - [1.7.19. Products/GetLoadoutProducts](#1719-productsgetloadoutproducts)
-        - [1.7.20. Products/GetPlayerProducts](#1720-productsgetplayerproducts)
-        - [1.7.21. RocketPass/GetPlayerInfo](#1721-rocketpassgetplayerinfo)
-        - [1.7.22. RocketPass/GetPlayerPrestigeRewards](#1722-rocketpassgetplayerprestigerewards)
-        - [1.7.23. RocketPass/GetRewardContent](#1723-rocketpassgetrewardcontent)
-        - [1.7.24. Settings/GetStaticDataURL](#1724-settingsgetstaticdataurl)
-        - [1.7.25. Skills/GetPlayerSkill](#1725-skillsgetplayerskill)
-        - [1.7.26. Skills/GetSkillLeaderboard](#1726-skillsgetskillleaderboard)
-        - [1.7.27. Skills/GetSkillLeaderboardValueForUser](#1727-skillsgetskillleaderboardvalueforuser)
-        - [1.7.28. Stats/GetStatLeaderboard](#1728-statsgetstatleaderboard)
-        - [1.7.29. Stats/GetStatLeaderboardValueForUser](#1729-statsgetstatleaderboardvalueforuser)
-        - [1.7.30. Tournaments/Status/GetTournamentSubscriptions](#1730-tournamentsstatusgettournamentsubscriptions)
+        - [1.7.1. Ads/GetAds](#171-adsgetads)
+        - [1.7.2. Auth/AuthPlayer (STEAM)](#172-authauthplayer-steam)
+        - [1.7.2. Auth/AuthPlayer (EPIC)](#172-authauthplayer-epic)
+        - [1.7.3. Clubs/GetClubInvites](#173-clubsgetclubinvites)
+        - [1.7.4. Clubs/GetPlayerClubDetails](#174-clubsgetplayerclubdetails)
+        - [1.7.5. Codes/RedeemCode](#175-codesredeemcode)
+        - [1.7.6. DLC/GetDLC](#176-dlcgetdlc)
+        - [1.7.7. Filters/FilterContent](#177-filtersfiltercontent)
+        - [1.7.8. GameServer/FindPrivateServer](#178-gameserverfindprivateserver)
+        - [1.7.9. GameServer/GetGameServerPingList](#179-gameservergetgameserverpinglist)
+        - [1.7.10. GenericStorage/GetPlayerGenericStorage](#1710-genericstoragegetplayergenericstorage)
+        - [1.7.11. GenericStorage/SetPlayerGenericStorage](#1711-genericstoragesetplayergenericstorage)
+        - [1.7.12. Matchmaking/PlayerCancelPrivateMatch](#1712-matchmakingplayercancelprivatematch)
+        - [1.7.13. Matchmaking/PlayerSearchPrivateMatch](#1713-matchmakingplayersearchprivatematch)
+        - [1.7.14. Metrics/RecordMetrics](#1714-metricsrecordmetrics)
+        - [1.7.15. Microtransaction/ClaimEntitlements](#1715-microtransactionclaimentitlements)
+        - [1.7.16. Players/GetChatBanStatus](#1716-playersgetchatbanstatus)
+        - [1.7.17. Players/GetXP](#1717-playersgetxp)
+        - [1.7.18. Population/UpdatePlayerPlaylist](#1718-populationupdateplayerplaylist)
+        - [1.7.19. Products/GetContainerDropTable](#1719-productsgetcontainerdroptable)
+        - [1.7.20. Products/GetLoadoutProducts](#1720-productsgetloadoutproducts)
+        - [1.7.21. Products/GetPlayerProducts](#1721-productsgetplayerproducts)
+        - [1.7.22. RocketPass/GetPlayerInfo](#1722-rocketpassgetplayerinfo)
+        - [1.7.23. RocketPass/GetPlayerPrestigeRewards](#1723-rocketpassgetplayerprestigerewards)
+        - [1.7.24. RocketPass/GetRewardContent](#1724-rocketpassgetrewardcontent)
+        - [1.7.25. Settings/GetStaticDataURL](#1725-settingsgetstaticdataurl)
+        - [1.7.26. Skills/GetPlayerSkill](#1726-skillsgetplayerskill)
+        - [1.7.27. Skills/GetSkillLeaderboard](#1727-skillsgetskillleaderboard)
+        - [1.7.28. Skills/GetSkillLeaderboardValueForUser](#1728-skillsgetskillleaderboardvalueforuser)
+        - [1.7.29. Stats/GetStatLeaderboard](#1729-statsgetstatleaderboard)
+        - [1.7.30. Stats/GetStatLeaderboardValueForUser](#1730-statsgetstatleaderboardvalueforuser)
+        - [1.7.31. Tournaments/Status/GetTournamentSubscriptions](#1731-tournamentsstatusgettournamentsubscriptions)
     - [1.8. Possible Frequently Asked Questions](#18-possible-frequently-asked-questions)
     - [1.9. Issues / Contributions](#19-issues--contributions)
     - [1.10. Implementations](#110-implementations)
@@ -64,7 +65,7 @@ It is possible to keep using the HTTP api instead of the websocket server. I hav
 
 If you want to intercept HTTPS requests from the game itself, you have to make sure that the websocket connection fails. It will fallback to HTTPS after 10 failed attempts.
 
-You can easily do this by using the provided [script](rlforcehttps_alt/fiddlerscript.js) for [fiddler](https://www.telerik.com/fiddler).
+You can easily do this by using the provided [script](rlforcehttps_fiddler/fiddlerscript.js) for [fiddler](https://www.telerik.com/fiddler).
 
 Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and have installed its `SSL Root Certificate` in your `Trusted Root Certification Authorities`. (Something similar should be done if you are on a mac)
 
@@ -72,8 +73,8 @@ Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and
 
 | Key | Value | Authenticated only |
 |-|-|-|
-| User-Agent | RL Win/181206.63350.217951 gzip | No |
-| PsyBuildID | -1667045693 | No |
+| User-Agent | RL Win/220128.58061.363257 gzip | No |
+| PsyBuildID | -960700785 | No |
 | PsyEnvironment | Prod | No |
 | PsyRequestID | See [Requests](#17-requests) | No |
 | PsySig | See [Signing](#15-signing) | No |
@@ -148,7 +149,46 @@ A request body looks like this.
 
 > About all fields like `PlayerID`, its format means `<Platform>|<UniqueId>|<SplitscreenId>`.
 
-### 1.7.1. Auth/AuthPlayer Steam
+### 1.7.1. Ads/GetAds
+
+**Auth:** Yes
+**Version:** 1
+**Params:**
+```json
+{
+    "Language": "INT"
+}
+```
+**Result:**
+```json
+{
+  "Ads": [
+    {
+      "ZoneID": 201,
+      "Url": "https://rl-cdn.psyonix.com/Ads/Prod/124.7CjfwUcy/201.jpg",
+      "UTCEndTime": 0000000000
+    },
+    {
+      "ZoneID": 202,
+      "Url": "https://rl-cdn.psyonix.com/Ads/Prod/124.7CjfwUcy/202.jpg",
+      "UTCEndTime": 0000000000
+    },
+    {
+      "ZoneID": 403,
+      "Url": "https://rl-cdn.psyonix.com/Ads/Prod/124.7CjfwUcy/403.jpg",
+      "UTCEndTime": 0000000000
+    },
+    {
+      "ZoneID": 404,
+      "Url": "https://rl-cdn.psyonix.com/Ads/Prod/124.7CjfwUcy/404.jpg",
+      "UTCEndTime": 0000000000
+    }
+  ]
+}
+
+> The ZoneIDs may look like status codes, but are actually the id used to match the corresponding advert location, like the billboards.
+
+### 1.7.2. Auth/AuthPlayer Steam
 
 **Auth:** No  
 **Version:** 1  
@@ -162,7 +202,7 @@ A request body looks like this.
     "Language": "INT",
     "AuthTicket": "Steam EncryptedAppTicket, see demo/demo.js for an example",
     "BuildRegion": "",
-    "FeatureSet": "PrimeUpdate31",
+    "FeatureSet": "PrimeUpdate36_2",
     "bTrial": false,
     "bSkipAuth": false
 }
@@ -182,7 +222,7 @@ A request body looks like this.
 }
 ```
 
-### 1.7.1. Auth/AuthPlayer Epic
+### 1.7.2. Auth/AuthPlayer Epic
 
 **Auth:** No  
 **Version:** 2  
@@ -221,7 +261,7 @@ A request body looks like this.
 }
 ```
 
-### 1.7.2. Clubs/GetClubInvites
+### 1.7.3. Clubs/GetClubInvites
 
 **Auth:** Yes  
 **Version:** 1  
@@ -236,7 +276,7 @@ A request body looks like this.
 }
 ```
 
-### 1.7.3. Clubs/GetPlayerClubDetails
+### 1.7.4. Clubs/GetPlayerClubDetails
 
 **Auth:** Yes  
 **Version:** 1  
@@ -284,7 +324,7 @@ A request body looks like this.
 
 ```
 
-### 1.7.4. Codes/RedeemCode
+### 1.7.5. Codes/RedeemCode
 
 Attempts to redeem a code.
 
@@ -333,7 +373,7 @@ Attempts to redeem a code.
 }
 ```
 
-### 1.7.5. DLC/GetDLC
+### 1.7.6. DLC/GetDLC
 
 Gets all available DLC.
 
@@ -350,7 +390,7 @@ Gets all available DLC.
 }
 ```
 
-### 1.7.6. Filters/FilterContent
+### 1.7.7. Filters/FilterContent
 
 
 This is the best call of them all.  
@@ -379,7 +419,7 @@ Try it out for yourself.
 }
 ```
 
-### 1.7.7. GameServer/FindPrivateServer
+### 1.7.8. GameServer/FindPrivateServer
 
 This call happens when you try to join a private match with name and password.
 
@@ -399,7 +439,7 @@ This call happens when you try to join a private match with name and password.
 }
 ```
 
-### 1.7.8. GameServer/GetGameServerPingList
+### 1.7.9. GameServer/GetGameServerPingList
 
 Gets all server IPs, ports and their ping.
 
@@ -427,7 +467,7 @@ Gets all server IPs, ports and their ping.
 }
 ```
 
-### 1.7.9. GenericStorage/GetPlayerGenericStorage
+### 1.7.10. GenericStorage/GetPlayerGenericStorage
 
 You have to play with this call yourself a bit, because I don't know if it is useful.  
 The response looks pretty boring to me.
@@ -464,7 +504,7 @@ All possible categories: MusicPlayerSave_TA, SoundSettingsSave_TA, UISavedValues
 }
 ```
 
-### 1.7.10. GenericStorage/SetPlayerGenericStorage
+### 1.7.11. GenericStorage/SetPlayerGenericStorage
 
 I would be really careful with this one if I were you.
 
@@ -485,7 +525,7 @@ I would be really careful with this one if I were you.
 }
 ```
 
-### 1.7.11. Matchmaking/PlayerCancelPrivateMatch
+### 1.7.12. Matchmaking/PlayerCancelPrivateMatch
 
 **Auth:** Yes  
 **Version:** 1  
@@ -498,7 +538,7 @@ I would be really careful with this one if I were you.
 {}
 ```
 
-### 1.7.12. Matchmaking/PlayerSearchPrivateMatch
+### 1.7.13. Matchmaking/PlayerSearchPrivateMatch
 
 This call happens when creating a private match.
 
@@ -515,11 +555,11 @@ This call happens when creating a private match.
 {}
 ```
 
-### 1.7.13. Metrics/RecordMetrics
+### 1.7.14. Metrics/RecordMetrics
 
 Why would you use this? :')
 
-### 1.7.14. Microtransaction/ClaimEntitlements
+### 1.7.15. Microtransaction/ClaimEntitlements
 
 **Auth:** Yes  
 **Version:** 1  
@@ -537,7 +577,7 @@ Why would you use this? :')
 }
 ```
 
-### 1.7.15. Players/GetChatBanStatus
+### 1.7.16. Players/GetChatBanStatus
 
 Pretty self explanatory.
 
@@ -558,7 +598,7 @@ Pretty self explanatory.
 }
 ```
 
-### 1.7.16. Players/GetXP
+### 1.7.17. Players/GetXP
 
 Gets the amount of XP of the given player.
 
@@ -583,7 +623,7 @@ Gets the amount of XP of the given player.
 }
 ```
 
-### 1.7.17. Population/UpdatePlayerPlaylist
+### 1.7.18. Population/UpdatePlayerPlaylist
 
 Submits the amount of players in your party and the playlist you are playing.
 
@@ -601,7 +641,7 @@ Submits the amount of players in your party and the playlist you are playing.
 {}
 ```
 
-### 1.7.18. Products/GetContainerDropTable
+### 1.7.19. Products/GetContainerDropTable
 
 Gets the possible outcome for all crates.
 
@@ -614,7 +654,7 @@ Gets the possible outcome for all crates.
 }
 ```
 
-### 1.7.19. Products/GetLoadoutProducts
+### 1.7.20. Products/GetLoadoutProducts
 
 Gets the information of specific product instance ids.
 
@@ -638,7 +678,7 @@ Gets the information of specific product instance ids.
 }
 ```
 
-### 1.7.20. Products/GetPlayerProducts
+### 1.7.21. Products/GetPlayerProducts
 
 Gets the inventory of the given player. (Only yourself is allowed)
 
@@ -667,7 +707,7 @@ Gets the inventory of the given player. (Only yourself is allowed)
 }
 ```
 
-### 1.7.21. RocketPass/GetPlayerInfo
+### 1.7.22. RocketPass/GetPlayerInfo
 
 Gets the current tier, premium status and xp multiplier.
 
@@ -681,7 +721,7 @@ Gets the current tier, premium status and xp multiplier.
 }
 ```
 
-### 1.7.22. RocketPass/GetPlayerPrestigeRewards
+### 1.7.23. RocketPass/GetPlayerPrestigeRewards
 
 **Auth:** Yes  
 **Version:** 1  
@@ -716,7 +756,7 @@ Gets the current tier, premium status and xp multiplier.
 }
 ```
 
-### 1.7.23. RocketPass/GetRewardContent
+### 1.7.24. RocketPass/GetRewardContent
 
 Gets all possible rewards of the ~~battle~~ rocket pass.
 
@@ -761,7 +801,7 @@ Gets all possible rewards of the ~~battle~~ rocket pass.
 }
 ```
 
-### 1.7.24. Settings/GetStaticDataURL
+### 1.7.25. Settings/GetStaticDataURL
 
 The response of this call is actually quite useful.
 
@@ -781,7 +821,7 @@ The response of this call is actually quite useful.
 }
 ```
 
-### 1.7.25. Skills/GetPlayerSkill
+### 1.7.26. Skills/GetPlayerSkill
 
 Gets the ranking information for each ranked playlist of a specific player.
 
@@ -875,7 +915,7 @@ Gets the ranking information for each ranked playlist of a specific player.
 }
 ```
 
-### 1.7.26. Skills/GetSkillLeaderboard
+### 1.7.27. Skills/GetSkillLeaderboard
 
 Gets the top 100 players for the given playlist.
 
@@ -889,7 +929,7 @@ Gets the top 100 players for the given playlist.
 }
 ```
 
-### 1.7.27. Skills/GetSkillLeaderboardValueForUser
+### 1.7.28. Skills/GetSkillLeaderboardValueForUser
 
 Gets the ranking info of a specific player in the given playlist.
 
@@ -912,7 +952,7 @@ Gets the ranking info of a specific player in the given playlist.
 }
 ```
 
-### 1.7.28. Stats/GetStatLeaderboard
+### 1.7.29 Stats/GetStatLeaderboard
 
 Gets the top 100 players for the given stat.
 
@@ -926,7 +966,7 @@ Gets the top 100 players for the given stat.
 }
 ```
 
-### 1.7.29. Stats/GetStatLeaderboardValueForUser
+### 1.7.30. Stats/GetStatLeaderboardValueForUser
 
 Gets the ranking info of a specific player in the given stat leaderboard.
 
@@ -940,7 +980,7 @@ Gets the ranking info of a specific player in the given stat leaderboard.
 }
 ```
 
-### 1.7.30. Tournaments/Status/GetTournamentSubscriptions
+### 1.7.31. Tournaments/Status/GetTournamentSubscriptions
 
 **Auth:** Yes  
 **Version:** 1  
