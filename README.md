@@ -279,7 +279,7 @@ A request body looks like this.
 ### 1.7.4. Clubs/GetPlayerClubDetails
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2
 **Params:** 
 ```json
 {
@@ -389,7 +389,6 @@ Gets all available DLC.
     "DLC": []
 }
 ```
-
 ### 1.7.7. Filters/FilterContent
 
 
@@ -509,7 +508,7 @@ All possible categories: MusicPlayerSave_TA, SoundSettingsSave_TA, UISavedValues
 I would be really careful with this one if I were you.
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2  
 **Params:** 
 ```json
 {
@@ -543,7 +542,7 @@ I would be really careful with this one if I were you.
 This call happens when creating a private match.
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2  
 **Params:** 
 ```json
 {
@@ -562,7 +561,7 @@ Why would you use this? :')
 ### 1.7.15. Microtransaction/ClaimEntitlements
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2  
 **Params:** 
 ```json
 {
@@ -659,7 +658,7 @@ Gets the possible outcome for all crates.
 Gets the information of specific product instance ids.
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2  
 **Params:** 
 ```json
 {
@@ -683,7 +682,7 @@ Gets the information of specific product instance ids.
 Gets the inventory of the given player. (Only yourself is allowed)
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2  
 **Params:** 
 ```json
 {
@@ -712,7 +711,7 @@ Gets the inventory of the given player. (Only yourself is allowed)
 Gets the current tier, premium status and xp multiplier.
 
 **Auth:** Yes  
-**Version:** 1  
+**Version:** 2  
 **Params:** 
 ```json
 {
