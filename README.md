@@ -389,9 +389,6 @@ Gets all available DLC.
     "DLC": []
 }
 ```
-
-(Warning from `oofsamy`, this endpoint is no longer found, but I cannot confirm if it is removed or not though sorry)
-
 ### 1.7.7. Filters/FilterContent
 
 
