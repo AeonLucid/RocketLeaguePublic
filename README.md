@@ -61,13 +61,21 @@ When authentication has been successful, it connects to a websocket at `wss://rl
 
 It is possible to keep using the HTTP api instead of the websocket server. I have not looked at connecting to the websocket server yet, but I assume you send the same headers as you would for an authenticated request for the handshake and then send & receive json requests.
 
+
 ## 1.3. Intercepting requests
+Interception of these packets are not possible anymore.
+Rocket League will bypass any proxy set up on your device, and if you use a program like Proxifier it'll cancel out the connection in its entirety.
 
-If you want to intercept HTTPS requests from the game itself, you have to make sure that the websocket connection fails. It will fallback to HTTPS after 10 failed attempts.
+Rocket League now uses **SSL Pinning** which means it verifies if a certificate is actually a valid connection.
+> SSL Certificate Pinning, or pinning for short, is the process of associating a host with its certificate or public key. Once you know a host’s certificate or public key, you **pin** it to that host.
 
-You can easily do this by using the provided [script](rlforcehttps_fiddler/fiddlerscript.js) for [fiddler](https://www.telerik.com/fiddler).
+This means that MITM (Man in the Middle) attacks are not possible unless you're able to disassemble Rocket League and remove the SSL pinned, but that's not a possibility.
+Just wanted this to be documented, hope it saves people time because it's just not possible *without* patching Rocket League.
 
-Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and have installed its `SSL Root Certificate` in your `Trusted Root Certification Authorities`. (Something similar should be done if you are on a mac)
+~~If you want to intercept HTTPS requests from the game itself, you have to make sure that the websocket connection fails. It will fallback to HTTPS after 10 failed attempts.
+You can easily do this by using the provided [script](rlforcehttps_fiddler/fiddlerscript.js) for [fiddler](https://www.telerik.com/fiddler).~~
+
+~~Make sure you are using a tool that supports HTTPS such as Fiddler / Charles and have installed its `SSL Root Certificate` in your `Trusted Root Certification Authorities`. (Something similar should be done if you are on a mac)~~
 
 ## 1.4. Headers
 
