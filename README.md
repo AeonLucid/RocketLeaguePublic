@@ -51,6 +51,7 @@ This repository contains all information necessary to consume the `/Services` AP
     - [1.8. Possible Frequently Asked Questions](#18-possible-frequently-asked-questions)
     - [1.9. Issues / Contributions](#19-issues--contributions)
     - [1.10. Implementations](#110-implementations)
+    - [1.11. Adding Soon](#111-adding-soon)
 
 <!-- /TOC -->
 
@@ -1018,3 +1019,75 @@ I would like to keep this repository mostly used for documentation purposes.
 ## 1.10. Implementations
 
 None yet.
+
+## 1.11. Adding Soon
+```
+URPC_GetLeaderboardBase_X
+URPC_GetLeaderboardRankForUsersBase_X
+URPC_PlayerCancelMatchmaking_X
+URPC_StartMatchmaking_X
+URPC_GetPopulation_X
+URPC_PlayerSearchPrivateMatch_X
+URPC_PlayerCancelPrivateMatch_X
+URPC_GetGameServerPingList_X
+URPC_GetPlayerSkill_X
+URPC_GetPartyMemberSkill_X
+URPC_RecordMatchResults_X
+URPC_UpdateLeaderboard_X
+URPC_LoginAuthPlayer_X
+URPC_PsyNetReadFriends_X
+URPC_PsyNetSendIndividualChat_X
+URPC_GetPlayerPermissions_X
+URPC_PlayerStorageGet_X
+URPC_PartyInfo_X
+URPC_ReportCheater_X
+URPC_FilterContent_X
+URPC_AddPlayerToRole_X
+URPC_ClearClubInvites_X
+URPC_ClearFriendInvites_X
+URPC_FileStorage_GetFileDownloadUrl_X
+URPC_GetAntiAddictionData_X
+URPC_GetGenericDataAll_X
+URPC_GetPlayerTitles_X
+URPC_RemovePlayerFromRole_X
+URPC_ReportLowFPS_X
+URPC_SearchPsyTag_X
+URPC_SetPlayerSkill_X
+URPC_SetPlayerSkillTier_X
+URPC_SetRichPresence_X
+URPC_SetSeasonReward_X
+URPC_Test_X
+URPC_TestPlayerID_X
+URPC_InviteToClub_X
+URPC_GetClubInvites_X
+URPC_LeaveClub_X
+URPC_GetClubPrivateMatches_X
+URPC_GetPublicIP_X
+URPC_UpdatePlayerPlaylist_X
+URPC_ClubDetailsBase_X
+--URPC_AcceptClubInvite_X
+--URPC_RejectClubInvite_X
+--URPC_SetClubOwner_X
+--URPC_RemoveFromClub_X
+--URPC_GetPlayerClubDetails_X
+--URPC_GetClubDetails_X
+--URPC_UpdateClub_X
+--URPC_UpdateClubName_X
+--URPC_UpdateClubColors_X
+--URPC_UpdateClubMotD_X
+--URPC_CreateClub_X
+----URPC_SetClubMotD_X
+URPC_PartyBase_X
+--URPC_PartyMessage_X
+--URPC_PartyChat_X
+--URPC_PartyChangeOwner_X
+--URPC_PartyKickMember_X
+--URPC_PartySendInvite_X
+--URPC_PartyJoin_X
+--URPC_PartyLeave_X
+--URPC_PartyChatMessage_X
+URPC_CheckPsyTag_X
+--URPC_ClaimPsyTag_X
+```
+
+These are the currently found services by reverse engineering the game right now, this isn't a complete list, I will try to find all the headers and responses for these services, double dashes mean in the game, the service inherits the service with 2 dashes below (idk how to explain this better lol)
