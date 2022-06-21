@@ -1,0 +1,13 @@
+// This file is used for the demo files to grab the latest information for the game needed to do requests
+// Hasn't been tested a single bit, just setting up for later, maybe some info isn't even needed lol
+
+{
+  "RLUserAgent": "RL Win/220602.61499.382816 gzip",
+  "RLFeatureSet": "PrimeUpdate38",
+  "RLBuildId": -1831455112,
+  "RLEndpoint": "https://api.rlpp.psynet.gg/Services",
+  "RLKey": "c338bd36fb8c42b1a431d30add939fc7",
+  "RlDeploymentId": "da32ae9c12ae40e8a112c52e1f17f3ba",
+  "RlClientToken": "eHl6YTc4OTFwNUQ3czlSNkdtNm1vVEhXR2xvZXJwN0I6S25oMThkdTROVmxGcyszdVErWlBwRENWdG8wV1lmNHlYUDgrT2N3VnQxbw",
+  
+}
