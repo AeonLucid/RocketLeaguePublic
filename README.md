@@ -34,24 +34,24 @@ This repository contains all information necessary to consume the `/Services` AP
         - [1.7.15. Microtransaction/ClaimEntitlements](#1715-microtransactionclaimentitlements)
         - [1.7.16. Players/GetChatBanStatus](#1716-playersgetchatbanstatus)
         - [1.7.17. Players/GetXP](#1717-playersgetxp)
-        - [1.7.18. Population/UpdatePlayerPlaylist](#1718-populationupdateplayerplaylist)
-        - [1.7.19. Products/GetContainerDropTable](#1719-productsgetcontainerdroptable)
-        - [1.7.20. Products/GetLoadoutProducts](#1720-productsgetloadoutproducts)
-        - [1.7.21. Products/GetPlayerProducts](#1721-productsgetplayerproducts)
-        - [1.7.22. RocketPass/GetPlayerInfo](#1722-rocketpassgetplayerinfo)
-        - [1.7.23. RocketPass/GetPlayerPrestigeRewards](#1723-rocketpassgetplayerprestigerewards)
-        - [1.7.24. RocketPass/GetRewardContent](#1724-rocketpassgetrewardcontent)
-        - [1.7.25. Settings/GetStaticDataURL](#1725-settingsgetstaticdataurl)
-        - [1.7.26. Skills/GetPlayerSkill](#1726-skillsgetplayerskill)
-        - [1.7.27. Skills/GetSkillLeaderboard](#1727-skillsgetskillleaderboard)
-        - [1.7.28. Skills/GetSkillLeaderboardValueForUser](#1728-skillsgetskillleaderboardvalueforuser)
-        - [1.7.29. Stats/GetStatLeaderboard](#1729-statsgetstatleaderboard)
-        - [1.7.30. Stats/GetStatLeaderboardValueForUser](#1730-statsgetstatleaderboardvalueforuser)
-        - [1.7.31. Tournaments/Status/GetTournamentSubscriptions](#1731-tournamentsstatusgettournamentsubscriptions)
+        - [1.7.18. Population/GetPopulation](#1718-populationgetpopulation)
+        - [1.7.19. Population/UpdatePlayerPlaylist](#1719-populationupdateplayerplaylist)
+        - [1.7.20. Products/GetContainerDropTable](#1720-productsgetcontainerdroptable)
+        - [1.7.21. Products/GetLoadoutProducts](#1721-productsgetloadoutproducts)
+        - [1.7.22. Products/GetPlayerProducts](#1722-productsgetplayerproducts)
+        - [1.7.23. RocketPass/GetPlayerInfo](#1723-rocketpassgetplayerinfo)
+        - [1.7.24. RocketPass/GetPlayerPrestigeRewards](#1724-rocketpassgetplayerprestigerewards)
+        - [1.7.25. RocketPass/GetRewardContent](#1725-rocketpassgetrewardcontent)
+        - [1.7.26. Settings/GetStaticDataURL](#1726-settingsgetstaticdataurl)
+        - [1.7.27. Skills/GetPlayerSkill](#1727-skillsgetplayerskill)
+        - [1.7.28. Skills/GetSkillLeaderboard](#1728-skillsgetskillleaderboard)
+        - [1.7.29. Skills/GetSkillLeaderboardValueForUser](#1729-skillsgetskillleaderboardvalueforuser)
+        - [1.7.30. Stats/GetStatLeaderboard](#1730-statsgetstatleaderboard)
+        - [1.7.31. Stats/GetStatLeaderboardValueForUser](#1731-statsgetstatleaderboardvalueforuser)
+        - [1.7.32. Tournaments/Status/GetTournamentSubscriptions](#1732-tournamentsstatusgettournamentsubscriptions)
     - [1.8. Possible Frequently Asked Questions](#18-possible-frequently-asked-questions)
     - [1.9. Issues / Contributions](#19-issues--contributions)
     - [1.10. Implementations](#110-implementations)
-    - [1.11. Adding Soon](#111-adding-soon)
 
 <!-- /TOC -->
 
@@ -623,7 +623,23 @@ Gets the amount of XP of the given player.
 }
 ```
 
-### 1.7.18. Population/UpdatePlayerPlaylist
+
+### 1.7.18. Population/GetPopulation
+
+Gets the population count of every playlist.
+
+**Auth:** Yes
+**Version:** 1
+**Params:**
+```json
+{}
+```
+**Result:**
+```json
+{"Playlists":[{"Playlist":-2,"PlayerCount":2406},{"Playlist":0,"PlayerCount":48349},{"Playlist":1,"PlayerCount":2736},{"Playlist":2,"PlayerCount":14082},{"Playlist":3,"PlayerCount":9351},{"Playlist":4,"PlayerCount":1171},{"Playlist":6,"PlayerCount":6972},{"Playlist":7,"PlayerCount":1389},{"Playlist":8,"PlayerCount":2595},{"Playlist":9,"PlayerCount":11993},{"Playlist":10,"PlayerCount":4548},{"Playlist":11,"PlayerCount":31501},{"Playlist":13,"PlayerCount":12229},{"Playlist":19,"PlayerCount":211},{"Playlist":20,"PlayerCount":48},{"Playlist":21,"PlayerCount":3008},{"Playlist":22,"PlayerCount":169},{"Playlist":27,"PlayerCount":1272},{"Playlist":28,"PlayerCount":3221},{"Playlist":29,"PlayerCount":860},{"Playlist":30,"PlayerCount":559},{"Playlist":34,"PlayerCount":2936},{"Playlist":54,"PlayerCount":1},{"Playlist":35,"PlayerCount":1},{"Playlist":43,"PlayerCount":0},{"Playlist":38,"PlayerCount":0}]}
+```
+
+### 1.7.19. Population/UpdatePlayerPlaylist
 
 Submits the amount of players in your party and the playlist you are playing.
 
@@ -641,7 +657,7 @@ Submits the amount of players in your party and the playlist you are playing.
 {}
 ```
 
-### 1.7.19. Products/GetContainerDropTable
+### 1.7.20. Products/GetContainerDropTable
 
 Gets the possible outcome for all crates.
 
@@ -654,7 +670,7 @@ Gets the possible outcome for all crates.
 }
 ```
 
-### 1.7.20. Products/GetLoadoutProducts
+### 1.7.21. Products/GetLoadoutProducts
 
 Gets the information of specific product instance ids.
 
@@ -678,7 +694,7 @@ Gets the information of specific product instance ids.
 }
 ```
 
-### 1.7.21. Products/GetPlayerProducts
+### 1.7.22. Products/GetPlayerProducts
 
 Gets the inventory of the given player. (Only yourself is allowed)
 
@@ -707,7 +723,7 @@ Gets the inventory of the given player. (Only yourself is allowed)
 }
 ```
 
-### 1.7.22. RocketPass/GetPlayerInfo
+### 1.7.23. RocketPass/GetPlayerInfo
 
 Gets the current tier, premium status and xp multiplier.
 
@@ -721,7 +737,7 @@ Gets the current tier, premium status and xp multiplier.
 }
 ```
 
-### 1.7.23. RocketPass/GetPlayerPrestigeRewards
+### 1.7.24. RocketPass/GetPlayerPrestigeRewards
 
 **Auth:** Yes  
 **Version:** 1  
@@ -756,7 +772,7 @@ Gets the current tier, premium status and xp multiplier.
 }
 ```
 
-### 1.7.24. RocketPass/GetRewardContent
+### 1.7.25. RocketPass/GetRewardContent
 
 Gets all possible rewards of the ~~battle~~ rocket pass.
 
@@ -801,7 +817,7 @@ Gets all possible rewards of the ~~battle~~ rocket pass.
 }
 ```
 
-### 1.7.25. Settings/GetStaticDataURL
+### 1.7.26. Settings/GetStaticDataURL
 
 The response of this call is actually quite useful.
 
@@ -821,7 +837,7 @@ The response of this call is actually quite useful.
 }
 ```
 
-### 1.7.26. Skills/GetPlayerSkill
+### 1.7.27. Skills/GetPlayerSkill
 
 Gets the ranking information for each ranked playlist of a specific player.
 
@@ -915,7 +931,7 @@ Gets the ranking information for each ranked playlist of a specific player.
 }
 ```
 
-### 1.7.27. Skills/GetSkillLeaderboard
+### 1.7.28. Skills/GetSkillLeaderboard
 
 Gets the top 100 players for the given playlist.
 
@@ -929,7 +945,7 @@ Gets the top 100 players for the given playlist.
 }
 ```
 
-### 1.7.28. Skills/GetSkillLeaderboardValueForUser
+### 1.7.29. Skills/GetSkillLeaderboardValueForUser
 
 Gets the ranking info of a specific player in the given playlist.
 
@@ -952,7 +968,7 @@ Gets the ranking info of a specific player in the given playlist.
 }
 ```
 
-### 1.7.29 Stats/GetStatLeaderboard
+### 1.7.30 Stats/GetStatLeaderboard
 
 Gets the top 100 players for the given stat.
 
@@ -966,7 +982,7 @@ Gets the top 100 players for the given stat.
 }
 ```
 
-### 1.7.30. Stats/GetStatLeaderboardValueForUser
+### 1.7.31. Stats/GetStatLeaderboardValueForUser
 
 Gets the ranking info of a specific player in the given stat leaderboard.
 
@@ -980,7 +996,7 @@ Gets the ranking info of a specific player in the given stat leaderboard.
 }
 ```
 
-### 1.7.31. Tournaments/Status/GetTournamentSubscriptions
+### 1.7.32. Tournaments/Status/GetTournamentSubscriptions
 
 **Auth:** Yes  
 **Version:** 1  
@@ -1019,75 +1035,3 @@ I would like to keep this repository mostly used for documentation purposes.
 ## 1.10. Implementations
 
 None yet.
-
-## 1.11. Adding Soon
-```
-URPC_GetLeaderboardBase_X
-URPC_GetLeaderboardRankForUsersBase_X
-URPC_PlayerCancelMatchmaking_X
-URPC_StartMatchmaking_X
-URPC_GetPopulation_X
-URPC_PlayerSearchPrivateMatch_X
-URPC_PlayerCancelPrivateMatch_X
-URPC_GetGameServerPingList_X
-URPC_GetPlayerSkill_X
-URPC_GetPartyMemberSkill_X
-URPC_RecordMatchResults_X
-URPC_UpdateLeaderboard_X
-URPC_LoginAuthPlayer_X
-URPC_PsyNetReadFriends_X
-URPC_PsyNetSendIndividualChat_X
-URPC_GetPlayerPermissions_X
-URPC_PlayerStorageGet_X
-URPC_PartyInfo_X
-URPC_ReportCheater_X
-URPC_FilterContent_X
-URPC_AddPlayerToRole_X
-URPC_ClearClubInvites_X
-URPC_ClearFriendInvites_X
-URPC_FileStorage_GetFileDownloadUrl_X
-URPC_GetAntiAddictionData_X
-URPC_GetGenericDataAll_X
-URPC_GetPlayerTitles_X
-URPC_RemovePlayerFromRole_X
-URPC_ReportLowFPS_X
-URPC_SearchPsyTag_X
-URPC_SetPlayerSkill_X
-URPC_SetPlayerSkillTier_X
-URPC_SetRichPresence_X
-URPC_SetSeasonReward_X
-URPC_Test_X
-URPC_TestPlayerID_X
-URPC_InviteToClub_X
-URPC_GetClubInvites_X
-URPC_LeaveClub_X
-URPC_GetClubPrivateMatches_X
-URPC_GetPublicIP_X
-URPC_UpdatePlayerPlaylist_X
-URPC_ClubDetailsBase_X
---URPC_AcceptClubInvite_X
---URPC_RejectClubInvite_X
---URPC_SetClubOwner_X
---URPC_RemoveFromClub_X
---URPC_GetPlayerClubDetails_X
---URPC_GetClubDetails_X
---URPC_UpdateClub_X
---URPC_UpdateClubName_X
---URPC_UpdateClubColors_X
---URPC_UpdateClubMotD_X
---URPC_CreateClub_X
-----URPC_SetClubMotD_X
-URPC_PartyBase_X
---URPC_PartyMessage_X
---URPC_PartyChat_X
---URPC_PartyChangeOwner_X
---URPC_PartyKickMember_X
---URPC_PartySendInvite_X
---URPC_PartyJoin_X
---URPC_PartyLeave_X
---URPC_PartyChatMessage_X
-URPC_CheckPsyTag_X
---URPC_ClaimPsyTag_X
-```
-
-These are the currently found services by reverse engineering the game right now, this isn't a complete list, I will try to find all the headers and responses for these services, double dashes mean in the game, the service inherits the service with 2 dashes below (idk how to explain this better lol)
