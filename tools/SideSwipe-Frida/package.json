@@ -1,0 +1,15 @@
+{
+  "name": "frida-agent-sideswipe",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "agent/index.ts",
+  "scripts": {
+    "inject": "esbuild agent/index.ts --minify --bundle --platform=node --outfile=_agent.js --sourcemap=inline && frida -U -f com.Psyonix.RL2D -l _agent.js"
+  },
+  "devDependencies": {
+    "@types/frida-gum": "^18.7.0",
+    "@types/node": "^22.5.0",
+    "esbuild": "^0.23.1"
+  }
+}
