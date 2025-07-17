@@ -1,192 +1,115 @@
-/*
- * This is a demo script to show you how to connect successfully.
- * The code will be callback hell because it's easy and just to show you the basics.
- *
- * Make sure the account has access to Rocket League. (Family sharing untested)
- */
+// Simple demo: Authenticate and connect to Rocket League's WebSocket API
+// Uses Steam account credentials (family-shared works too)
+// Epic Games accounts work, but the auth flow is more complex
+import SteamUser from 'steam-user';
+import WebSocket from 'ws';
+import crypto from 'crypto';
+import axios from 'axios';
+import 'dotenv/config';
 
-const RLAppId = 252950; // https://steamdb.info/app/252950/
-const RLEndpoint = 'https://api.rlpp.psynet.gg/Services';
-const RLKey = 'c338bd36fb8c42b1a431d30add939fc7';
+const PSY_KEY = 'c338bd36fb8c42b1a431d30add939fc7';
+// Log: Using feature set FEATURE_SET
+const FEATURE_SET = 'PrimeUpdate55';
+// Log: BuildID: BUILD_ID from GPsyonixBuildID
+const BUILD_ID = '-1571787015';
 
-const RLUserAgent = 'RL Win/211123.48895.355454 gzip';
-const RLLanguage = 'INT';
-const RLFeatureSet = 'PrimeUpdate36_2';
-const RLBuildId = '-960700785';
-const RLEnvironment = 'Prod';
+const user = new SteamUser();
 
-const Config = require('./demo_config');
-const Utils = require('./lib/utils');
-const SteamUser = require('steam-user');
-const CryptoJS = require('crypto-js');
-const WebSocket = require('ws')
-
-
-
-let request = require('request');
-let clientSteam = new SteamUser();
-
-// Step 0: Verify config.
-if (!Config.username) {
-    console.log('Field "username" is missing from the config.');
-    return;
-}
-
-if (!Config.password) {
-    console.log('Field "password" is missing from the config.');
-    return;
-}
-
-if (!Config.displayName) {
-    console.log('Field "displayName" is missing from the config.');
-    return;
-}
-
-
-if (!Config.EpicAccountID) {
-    console.log('Field "EpicAccountID" is missing from the config.');
-    return;
-}
-
-// Step 1: Sign into Steam.
-clientSteam.logOn({
-    'accountName': Config.username,
-    'password': Config.password
+// Log into Steam using credentials from the environment
+user.logOn({
+    'accountName': process.env.NAME ?? (() => { throw new Error('NAME not set') })(),
+    'password': process.env.PASS ?? (() => { throw new Error('PASS not set') })(),
 });
 
-clientSteam.on('loggedOn', details => {
-    console.log('[Steam] Signed into Steam as ' + clientSteam.steamID + '.');
+user.on('loggedOn', async () => {
+    // Generate a auth session ticket for Rocket League (App ID: 252950)
+    const session = await user.createAuthSessionTicket(252950);
+    const ticket = Buffer.from(session.sessionTicket).toString('hex').toUpperCase();
 
-    // Step 2: Request an appticket (AuthTicket).
-    clientSteam.getEncryptedAppTicket(RLAppId, null, (err, ticket) => {
-        if (err) {
-			console.log("[Steam] AppTicket error: " + err);
-            return;
+    // To my knowledge Rocket League only takes Epic access tokens now
+    // The ticket is passed as an external auth token to get an Epic access token
+    const epic = await axios.post(
+        'https://api.epicgames.dev/epic/oauth/v2/token',
+        new URLSearchParams({
+            grant_type: 'external_auth',
+            deployment_id: 'da32ae9c12ae40e8a112c52e1f17f3ba',
+            external_auth_type: 'steam_session_ticket',
+            external_auth_token: ticket,
+        }), {
+        auth: {
+            username: 'xyza7891p5D7s9R6Gm6moTHWGloerp7B',
+            password: 'Knh18du4NVlFs+3uQ+ZPpDCVto0WYf4yXP8+OcwVt1o',
+        },
+    }).then(res => res.data).catch(err => { throw new Error(err) });
+
+    // The access token from the response is the new auth ticket
+    const access_token = epic.access_token;
+    const steam_id = user.steamID.getSteamID64();
+    const epic_id = epic.account_id;
+
+    // The route /rpc is used instead of /Services but that route still works
+    const psynet = await axios.post(
+        'https://api.rlpp.psynet.gg/rpc/Auth/AuthPlayer/v2',
+        JSON.stringify({
+            Platform: 'Steam',
+            PlayerName: 'DEMO',
+            PlayerID: steam_id,
+            Language: 'INT',
+            AuthTicket: access_token,
+            BuildRegion: '',
+            FeatureSet: FEATURE_SET,
+            Device: 'PC',
+            bSkipAuth: false,
+            bSetAsPrimaryAccount: true,
+            EpicAuthTicket: access_token,
+            EpicAccountID: epic_id,
+        }), {
+        headers: {
+            PsyBuildID: BUILD_ID,
+        },
+    }).then(res => res.data.Result).catch(err => { throw new Error(err) });
+
+    // To my knowledge the v1 url does not work anymore so v2 is used
+    const wss = new WebSocket(psynet.PerConURLv2, {
+        headers: {
+            PsyToken: psynet.PsyToken,
+            PsySessionID: psynet.SessionID,
+            PsyBuildID: BUILD_ID,
+            PsyEnviornment: 'Prod',
         }
+    });
 
-        console.log('[Steam] Received an appticket.');
-
-        // Step 3: Authenticate at RocketLeague.
-        let authRequest = JSON.stringify([
-            {
-                Service: 'Auth/AuthPlayer',
-                Version: 2,
-                ID: 1,
-                Params: {
-                    Platform: 'Steam',
-                    PlayerName: Config.displayName,
-                    PlayerID: clientSteam.steamID.getSteamID64(),
-                    Language: RLLanguage,
-                    AuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
-                    EpicAuthTicket: Utils.bufferToHex(ticket).toUpperCase(),
-                    BuildRegion: '',
-                    FeatureSet: RLFeatureSet,
-                    bSkipAuth: false,
-		    EpicAccountID: Config.EpicAccountID
-                }
-            }
-        ]);
-		
-		
-
-        let authSignature = CryptoJS.HmacSHA256('-' + authRequest, RLKey).toString();
-		
-
-        request.post({
-            url: RLEndpoint,
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'User-Agent': RLUserAgent,
-                'Cache-Control': 'no-cache',
-                'PsyBuildID': RLBuildId,
-                'PsyEnvironment': RLEnvironment,
-                'PsyRequestID': 'PsyNetMessage_X_0',
-                'PsySig': Buffer.from(authSignature, 'hex').toString('base64')
-            },
-            body: authRequest
-        }, (error, response, body) => {
-            if (error) {
-                return console.log('[RocketLeague] Auth failed: ' + error);
-            }
-		
-            // Step 4: Consume tokens to send authenticated requests.
-            let authResponse = JSON.parse(body).Responses[0].Result;
-            if (authResponse === undefined) {
-                return console.log('[RocketLeague] Auth failed: ' + body);
-            }
-
-            let authWebsocket = authResponse.PerConURL;
-            let authPsyToken = authResponse.PsyToken;
-            let authSessionId = authResponse.SessionID;
-
-            console.log('[RocketLeague] Auth was successful.');
-            console.log('[RocketLeague] Connecting to RocketLeague through WebSocket.');
-            
-            const client = new WebSocket(authWebsocket, {
-                headers: {
-                    'PsyToken': authPsyToken,
-                    'PsySessionID': authSessionId,
-                    'PsyBuildID': RLBuildId,
-                    'PsyEnvironment': RLEnvironment,
-                    'User-Agent': RLUserAgent
-                }
-            });
-
-            client.on('open', function () {
-                console.log('[RocketLeague] Connected to WebSocket.')
-
-                client.on('message', function (data) {
-                    // Parse message.
-                    let start = data.indexOf('\r\n\r\n')
-                    if (start !== -1) {
-                        start += 4
-                        let dataLen = data.length - start;
-                        if (dataLen === 0) {
-                            // No message data.
-                            console.log('No data was found.');
-                        } else {
-                            // We got a message.
-                            let jsonString = data.substring(start);
-                            let jsonPretty = JSON.stringify(JSON.parse(jsonString), null, 2);
-
-                            console.log(jsonPretty);
-                        }
-                    }
-                });
-
-                console.log('[RocketLeague] Requesting inventory of signed in player..');
-
-                // Create message.
-                let msgBody = JSON.stringify([
-                    {
-                        Service: 'Products/GetPlayerProducts',
-                        Version: 1,
-                        ID: 3,
-                        Params: {
-                            PlayerID: 'Steam|' + clientSteam.steamID.getSteamID64() + '|0'
-                        }
-                    }
-                ]);
-
-                // Create signature for the message.
-                let msgSignature = CryptoJS.HmacSHA256('-' + msgBody, RLKey).toString();
-                let msgSignatureBase = Buffer.from(msgSignature, 'hex').toString('base64');
-
-                // Setup headers.
-                let msgHeaders = "PsySig: " + msgSignatureBase + "\r\n" +
-                                 "PsyRequestID: PsyNetMessage_X_2\r\n" +
-                                 "\r\n";
-
-                // Create final message.
-                let msgFinal = msgHeaders + msgBody;
-
-                // Send message.
-                client.send(msgFinal);
-            })
+    wss.on('open', async () => {
+        // Services now use a new format `${Request} v${Version}`
+        const service = 'Skills/GetPlayerSkill v1';
+        const params = JSON.stringify({
+            PlayerID: `Epic|${epic_id}|0`,
         });
+
+        // Sign the request with the key
+        const sig = crypto.createHmac('sha256', PSY_KEY).update(`-${params}`).digest('base64');
+
+        // Build the headers for the message
+        const headers = [
+            `PsyService: ${service}`,
+            'PsyRequestID: PsyNetMessage_X_1',
+            `PsySig: ${sig}`,
+        ].join("\r\n");
+
+        wss.send(`${headers}\r\n\r\n${params}`);
+    });
+
+    // Parse incoming WebSocket messages
+    wss.on('message', msg => {
+        const [headers, body] = msg.toString().split('\r\n\r\n');
+        console.log(`${headers}\n${body}`);
+    });
+
+    wss.on('error', err => {
+        throw new Error(err);
     });
 });
 
-clientSteam.on('error', function(e) {
-    console.log(e);
+user.on('error', (err) => {
+    throw new Error(err);
 });
