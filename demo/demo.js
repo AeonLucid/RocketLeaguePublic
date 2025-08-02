@@ -9,9 +9,9 @@ import 'dotenv/config';
 
 const PSY_KEY = 'c338bd36fb8c42b1a431d30add939fc7';
 // Log: Using feature set FEATURE_SET
-const FEATURE_SET = 'PrimeUpdate55';
+const FEATURE_SET = 'PrimeUpdate55_1';
 // Log: BuildID: BUILD_ID from GPsyonixBuildID
-const BUILD_ID = '-1571787015';
+const BUILD_ID = '-789534442';
 
 const user = new SteamUser();
 
