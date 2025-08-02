@@ -1,17 +1,15 @@
 {
-  "name": "rldemo",
+  "name": "demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "AeonLucid",
+  "main": "demo.js",
+  "author": "ryblas",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "crypto-js": "^3.1.9-1",
-    "request": "^2.88.0",
-    "steam-user": "^4.12.4",
-    "ws": "^7.2.0"
+    "axios": "^1.10.0",
+    "dotenv": "^17.2.0",
+    "steam-user": "^5.2.3",
+    "ws": "^8.18.3"
   }
 }
